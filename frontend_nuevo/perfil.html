@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="img/fav.png">
+  <title>Perfil | InstaRent</title>
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ――― extras ligeros, sin Tailwind ――― */
+    .role-btn        { transition: all .3s ease; }
+    .role-btn:hover  { transform: translateY(-2px); box-shadow:0 8px 16px -8px rgba(0,0,0,.15);}
+    .role-btn.active { border-bottom: .25rem solid var(--primary, #ffba00); }
+    .role-btn.active { border-bottom: 4px solid #ffba00; }
+
+    .profile-pane            { display:none;  }
+    .profile-pane.active     { display:block; animation:fadeIn .4s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+    .avatar-upload           { position:relative; overflow:hidden; display:inline-block; }
+    .avatar-upload input     { position:absolute; inset:0; opacity:0; cursor:pointer; }
+   
+    
+    /* Hacer que los tabs siempre sean naranjas */
+    .nav-tabs .nav-link {
+    color: #ffba00;
+    font-weight: 600;
+    }
+
+    /* También el tab activo (cuando está seleccionado) */
+    .nav-tabs .nav-link.active {
+    color: #ffba00;
+    border-color: #ffba00 #ffba00 #fff; /* si quieres bordes bonitos, opcional */
+    }
+    /* Ajustes específicos para esta página */
+    .text-primary {
+    color: #ffba00 !important;
+    }
+    .bg-primary {
+    background-color: #ffba00 !important;
+    }
+    .btn-primary, .primary-btn {
+    background: linear-gradient(to right, #ffba00, #ff6c00);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+    }
+    .btn-outline-primary {
+    border-color: #ffba00;
+    color: #ffba00;
+    border-radius: 30px;
+    }
+    .btn-outline-primary:hover {
+    background: #ffba00;
+    color: #fff;
+    }
+    .carousel-indicators li {
+    background-color: #ffba00;
+    }
+    .badge-primary {
+    background-color: #ffba00;
+    }
+    .star-rating i {
+    color: #ccc;
+    cursor: pointer;
+    }
+    .star-rating .rated {
+    color: #ffba00;
+    }
+    .fa-camera {
+    background-color: #ffba00;
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    }
+
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- ╔═══════════════ CABECERA (igual al resto de páginas) ═══════════════╗ -->
+  <div id="header-placeholder"></div> 
+  <!-- ╚════════════════════════════════════════════════════════════════════╝ -->
+
+  <!-- ╔══════════════ CONTENIDO PERFIL ══════════════╗ -->
+  <div class="container py-5">
+    <div class="card shadow-sm">
+
+      <!-- ─── encabezado perfil ─── -->
+      <div class="card-body border-bottom position-relative" style="margin-top: 100px;">
+        <!-- Botón Editar en la esquina superior derecha -->
+        <a href="#" class="btn btn-warning btn-sm position-absolute" style="bottom: 0; right: 0; margin: 10px;">
+          <i class="fa fa-edit mr-1"></i> Editar
+        </a>
+      
+        <!-- Contenido principal -->
+        <div class="d-flex align-items-center">
+          <!-- Avatar -->
+          <div class="avatar-upload mr-3 position-relative">
+            <img class="rounded-circle" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=128&h=128&q=80" width="96" height="96" alt="avatar">
+            <input type="file" id="profile-avatar-input" accept="image/*">
+            <label for="profile-avatar-input" class="cam bg-warning"><i class="fa fa-camera text-white"></i></label>
+          </div>
+      
+          <!-- Datos -->
+          <div>
+            <h2 class="h4 mb-0">Juan Pérez</h2>
+            <small class="text-muted d-block mb-1">juan.perez@gmail.com</small>
+            <small class="text-muted"><i class="fa fa-map-marker text-warning mr-1"></i>Barcelona, España</small>
+          </div>
+        </div>
+      </div>
+      
+      
+
+      <!-- ─── selector de rol ─── -->
+      <div class="bg-light px-4 py-3">
+        <div class="row text-center">
+
+          <div class="col-12 col-md-4 mb-2 mb-md-0">
+            <button id="role-tenant"  class="role-btn btn btn-white w-100 py-3 active">
+              <i class="fa fa-home text-primary mb-2 d-block fa-lg"></i>
+              <strong>Inquilino</strong><br><small class="text-muted">Busco propiedades</small>
+            </button>
+          </div>
+
+          <div class="col-12 col-md-4 mb-2 mb-md-0">
+            <button id="role-landlord" class="role-btn btn btn-white w-100 py-3">
+              <i class="fa fa-key text-primary mb-2 d-block fa-lg"></i>
+              <strong>Propietario</strong><br><small class="text-muted">Publico propiedades</small>
+            </button>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <button id="role-worker"  class="role-btn btn btn-white w-100 py-3">
+              <i class="fa fa-phone text-primary mb-2 d-block fa-lg"></i>
+              <strong>Profesional</strong><br><small class="text-muted">Ofrezco servicios</small>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── secciones de perfil ─── -->
+      <div class="card-body">
+
+        <!-- ▣ INQUILINO -->
+        <div id="pane-tenant" class="profile-pane active">
+          <h5 class="mb-4">Perfil de Inquilino</h5>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Presupuesto mensual</label>
+              <input type="text" class="form-control" placeholder="€800 ‑ €1200">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Preferencias</label>
+              <select class="custom-select">
+                <option>Piso completo</option><option>Habitación individual</option><option>Habitación compartida</option>
+              </select>
+            </div>
+            <div class="form-group col-12">
+              <label>Zonas de interés</label>
+              <input type="text" class="form-control" placeholder="Gràcia, Eixample, Poble Sec">
+            </div>
+            <div class="form-group col-12">
+              <label>Notas adicionales</label>
+              <textarea class="form-control" rows="3" placeholder="Prefiero edificios con ascensor…"></textarea>
+            </div>
+          </div>
+
+          <h6 class="mt-4">Propiedades guardadas</h6>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Piso en Gràcia</h6>
+                  <small class="text-muted">2 hab · 1 baño</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-0">€950/mes</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Estudio en Eixample</h6>
+                  <small class="text-muted">1 hab · 1 baño</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-0">€750/mes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ▣ PROPIETARIO -->
+        <div id="pane-landlord" class="profile-pane">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Perfil de Propietario</h5>
+            <a href="#" class="btn btn-primary"><i class="fa fa-plus mr-1"></i>Publicar propiedad</a>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Teléfono contacto</label>
+              <input type="tel" class="form-control" placeholder="+34 600 123 456">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Método de pago preferido</label>
+              <select class="custom-select">
+                <option>Transferencia</option><option>Bizum</option><option>Efectivo</option>
+              </select>
+            </div>
+            <div class="form-group col-12">
+              <label>Documentación verificada</label><br>
+              <div class="custom-control custom-checkbox d-inline-block mr-3">
+                <input id="doc-dni"  type="checkbox" class="custom-control-input"><label class="custom-control-label" for="doc-dni">DNI/NIE</label>
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block mr-3">
+                <input id="doc-esc"  type="checkbox" class="custom-control-input"><label class="custom-control-label" for="doc-esc">Escritura</label>
+              </div>
+              <div class="custom-control custom-checkbox d-inline-block">
+                <input id="doc-ener" type="checkbox" class="custom-control-input"><label class="custom-control-label" for="doc-ener">Cert. energético</label>
+              </div>
+            </div>
+          </div>
+
+          <h6 class="mt-4">Tus propiedades publicadas</h6>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                  <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="">
+                  <span class="badge badge-success position-absolute" style="top:.5rem;right:.5rem">Activo</span>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Apartamento en Poble Nou</h6>
+                  <small class="text-muted">1 hab · 1 baño · 45 m²</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-2">€850/mes</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary mr-2"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="position-relative">
+                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="">
+                  <span class="badge badge-secondary position-absolute" style="top:.5rem;right:.5rem">Inactivo</span>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Piso en Sants</h6>
+                  <small class="text-muted">3 hab · 2 baños · 85 m²</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-2">€1 200/mes</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary mr-2"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ▣ PROFESIONAL -->
+        <div id="pane-worker" class="profile-pane">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Perfil de Profesional</h5>
+            <a href="#" class="btn btn-primary"><i class="fa fa-plus mr-1"></i>Publicar servicio</a>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Profesión</label>
+              <select class="custom-select">
+                <option>Fontanero</option><option>Electricista</option><option>Carpintero</option><option>Pintor</option><option>Albañil</option><option>Jardinero</option><option>Técnico climatización</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Tarifa por hora</label>
+              <input type="text" class="form-control" placeholder="€25">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Años de experiencia</label>
+              <input type="number" class="form-control" placeholder="5">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Disponibilidad</label>
+              <div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input id="disp-man" type="checkbox" class="custom-control-input"><label class="custom-control-label" for="disp-man">Mañanas</label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input id="disp-tar" type="checkbox" class="custom-control-input"><label class="custom-control-label" for="disp-tar">Tardes</label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input id="disp-fin" type="checkbox" class="custom-control-input"><label class="custom-control-label" for="disp-fin">Fines de semana</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <label>Habilidades</label>
+              <textarea class="form-control" rows="3" placeholder="Instalación de calderas, reparación de tuberías…"></textarea>
+            </div>
+          </div>
+
+          <h6 class="mt-4">Tus servicios publicados</h6>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="img/trabajadores/servicio1.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Servicios de fontanería</h6>
+                  <small class="text-muted">Reparaciones e instalaciones</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-2">Desde €25/h</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary mr-2"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card h-100 border-0 shadow-sm">
+                <img src="img/trabajadores/servicio2.jpg" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">Instalación eléctrica</h6>
+                  <small class="text-muted">Cuadros y enchufes</small>
+                  <p class="text-primary font-weight-bold mt-2 mb-2">Desde €30/h</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary mr-2"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger"><i class="fa fa-times"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /card-body -->
+    </div><!-- /card -->
+  </div><!-- /container -->
+  <!-- ╚══════════════════════════════════════════════╝ -->
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro. ¡Bienvenido a la manera más fácil de alquilar!</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Sé parte de nuestra comunidad</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          © 2025 InstaRent |
+          <a href="condiciones_uso.html">Condiciones de uso</a> |
+          <a href="politica_privacidad.html">Política de privacidad</a> |
+          <a href="politica_cookies.html">Política de cookies</a> |
+          <a href="politica_copyright.html">Política de copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+
+
+  <script>
+    /* ─── cambio de avatar ─── */
+    $('#profile-avatar-input').on('change', function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => $(this).siblings('img').attr('src', ev.target.result);
+      reader.readAsDataURL(file);
+    });
+
+    /* ─── cambio de rol ─── */
+    const roles  = ['tenant','landlord','worker'];
+    roles.forEach(r => {
+      $('#role-'+r).on('click', function () {
+        $('.role-btn').removeClass('active');
+        $(this).addClass('active');
+        roles.forEach(p => $('#pane-'+p).removeClass('active'));
+        $('#pane-'+r).addClass('active');
+      });
+    });
+  </script>
+  <script src="../scripts/header_loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="CodePixar">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Contacto - InstaRent</title>
+
+  <!--
+      CSS
+      =============================================
+  -->
+  <link rel="stylesheet" href="css/linearicons.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <!-- Start Header Area -->
+  <header class="header_area sticky-header">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light main_box">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html">
+            <img src="img/logo.png" alt="" style="height: 120px;">
+          </a>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="trabajadores.html">Trabajadores</a></li>
+              <li class="nav-item submenu dropdown active">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" 
+                   aria-haspopup="true" aria-expanded="false">Crear</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="crear_alquiler.html">Crear Alquiler</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="crear_trabajo.html">Crear Trabajo</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="resenyas.html">Reseñas</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!--================Contact Area =================-->
+  <section class="contact_area section_gap_bottom">
+    <div class="container">
+      <!-- Mapa centrado en San Vicente del Raspeig -->
+      <!-- Coordenadas reales aproximadas para San Vicente del Raspeig -->
+      <div id="mapBox"
+        class="mapBox"
+        data-lat="38.3966"
+        data-lon="-0.5254"
+        data-zoom="14"
+        data-info="San Vicente del Raspeig, Alicante"
+        data-mlat="38.3966"
+        data-mlon="-0.5254">
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="contact_info">
+            <div class="info_item">
+              <i class="lnr lnr-home"></i>
+              <h6>San Vicente del Raspeig, Alicante</h6>
+              <p>Calle Principal, 123</p>
+            </div>
+            <div class="info_item">
+              <i class="lnr lnr-phone-handset"></i>
+              <h6><a href="tel:+34666123456">+34 666 123 456</a></h6>
+              <p>Lunes a Viernes, 9:00 a 18:00</p>
+            </div>
+            <div class="info_item">
+              <i class="lnr lnr-envelope"></i>
+              <h6><a href="mailto:contacto@instarent.com">contacto@instarent.com</a></h6>
+              <p>¡Envíanos tu consulta en cualquier momento!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <!-- Formulario de contacto -->
+          <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                novalidate="novalidate">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input 
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Ingresa tu nombre"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Ingresa tu nombre'">
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Ingresa tu correo electrónico"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Ingresa tu correo electrónico'">
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  name="subject"
+                  placeholder="Asunto"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Asunto'">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  id="message"
+                  rows="1"
+                  placeholder="Mensaje"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Mensaje'">
+                </textarea>
+              </div>
+            </div>
+            <div class="col-md-12 text-right">
+              <button type="submit" value="submit" class="primary-btn">Enviar Mensaje</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- start footer Area -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>
+                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
+                ¡Bienvenido a la manera más fácil de alquilar!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Seamos sociales</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Tu texto base existente -->
+          <span>© 2025 InstaRent</span> |
+          <a href="condiciones_uso.html">Condiciones de Uso</a> |
+          <a href="politica_privacidad.html">Política de Privacidad</a> |
+          <a href="politica_cookies.html">Política de Cookies</a> |
+          <a href="politica_copyright.html">Política de Copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End footer Area -->
+
+
+
+  <!--================Contact Success and Error message Area =================-->
+  <div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Puedes traducir los textos del modal también -->
+        <div class="modal-header">
+          <!-- Botón para cerrar el modal -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="fa fa-close"></i>
+          </button>
+          <h2>¡Gracias!</h2>
+          <p>Tu mensaje se ha enviado con éxito...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals error -->
+  <div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="fa fa-close"></i>
+          </button>
+          <h2>¡Lo sentimos!</h2>
+          <p>Algo salió mal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================End Contact Success and Error message Area =================-->
+
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="js/gmaps.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

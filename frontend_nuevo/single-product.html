@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- Adaptación Bootstrap de la antigua página "single‑product.html" -->
+<html lang="es" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="img/fav.png" />
+    <title>Piso luminoso en el centro | InstaRent</title>
+  
+    <!-- CSS principal del proyecto -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/nouislider.min.css">
+    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/main.css">
+  
+    <style>
+      /* Hacer que los tabs siempre sean naranjas */
+      .nav-tabs .nav-link {
+        color: #ffba00;
+        font-weight: 600;
+      }
+
+      /* También el tab activo (cuando está seleccionado) */
+      .nav-tabs .nav-link.active {
+        color: #ffba00;
+        border-color: #ffba00 #ffba00 #fff; /* si quieres bordes bonitos, opcional */
+      }
+      /* Ajustes específicos para esta página */
+      .text-primary {
+        color: #ffba00 !important;
+      }
+      .bg-primary {
+        background-color: #ffba00 !important;
+      }
+      .btn-primary, .primary-btn {
+        background: linear-gradient(to right, #ffba00, #ff6c00);
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 25px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .btn-outline-primary {
+        border-color: #ffba00;
+        color: #ffba00;
+        border-radius: 30px;
+      }
+      .btn-outline-primary:hover {
+        background: #ffba00;
+        color: #fff;
+      }
+      .carousel-indicators li {
+        background-color: #ffba00;
+      }
+      .badge-primary {
+        background-color: #ffba00;
+      }
+      .star-rating i {
+        color: #ccc;
+        cursor: pointer;
+      }
+      .star-rating .rated {
+        color: #ffba00;
+      }
+    </style>
+  </head>
+<body>
+  <!-- ======= CABECERA ======= -->
+  <div id="header-placeholder"></div> 
+
+  <!-- ======= BANNER con título de la vivienda ======= -->
+  <section class="banner-area organic-breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>Piso luminoso en el centro</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTENIDO PRINCIPAL ======= -->
+  <div class="container section_gap">
+    <div class="row">
+      <!-- ================= Galería / Carrusel ================= -->
+      <div class="col-lg-8 mb-4">
+        <div id="propertyCarousel" class="carousel slide property-carousel" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#propertyCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#propertyCarousel" data-slide-to="1"></li>
+            <li data-target="#propertyCarousel" data-slide-to="2"></li>
+            <li data-target="#propertyCarousel" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Salón principal" />
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Cocina moderna" />
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Dormitorio principal" />
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1470&q=80" class="d-block w-100" alt="Baño moderno" />
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#propertyCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#propertyCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= Detalle lateral ================= -->
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm sticky-top" style="top:100px">
+          <div class="card-body">
+            <h2 class="card-title mb-1">Piso luminoso en el centro</h2>
+            <p class="text-muted mb-3"><i class="fa fa-map-marker text-primary"></i> Calle Principal, 123 – Centro</p>
+            <h4 class="text-primary font-weight-bold">700€/mes</h4>
+            <hr />
+            <ul class="list-unstyled mb-3">
+              <li class="mb-2"><i class="fa fa-bed text-primary"></i> 2 dormitorios</li>
+              <li class="mb-2"><i class="fa fa-bath text-primary"></i> 1 baño</li>
+              <li class="mb-2"><i class="fa fa-ruler-combined text-primary"></i> 75 m²</li>
+              <li><i class="fa fa-building text-primary"></i> 2º piso</li>
+            </ul>
+            <p class="small">Espectacular piso reformado con todas las comodidades en pleno centro de la ciudad. Muy bien comunicado y listo para entrar a vivir.</p>
+            <div class="d-grid gap-2">
+              <a href="#contacto" class="btn btn-primary btn-block mb-2"><i class="fa fa-phone"></i> Contactar propietario</a>
+              <button class="btn btn-outline-primary btn-block"><i class="fa fa-calendar"></i> Solicitar visita</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Pestañas con Bootstrap ================= -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <ul class="nav nav-tabs" id="propertyTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Detalles</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="amenities-tab" data-toggle="tab" href="#amenities" role="tab" aria-controls="amenities" aria-selected="false">Comodidades</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false">Ubicación</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reseñas (4.8)</a>
+          </li>
+        </ul>
+        <div class="tab-content p-4 bg-white shadow-sm" id="propertyTabContent">
+          <!-- ===== Detalles ===== -->
+          <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+            <h4 class="mb-3">Detalles de la propiedad</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush small">
+                  <li class="list-group-item d-flex justify-content-between"><span>Referencia</span><strong>INS‑2456</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Tipo</span><strong>Piso</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Contrato</span><strong>Alquiler</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Disponibilidad</span><strong class="text-success">Inmediata</strong></li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-group list-group-flush small">
+                  <li class="list-group-item d-flex justify-content-between"><span>Superficie</span><strong>75 m²</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Dormitorios</span><strong>2</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Baños</span><strong>1</strong></li>
+                  <li class="list-group-item d-flex justify-content-between"><span>Año construcción</span><strong>2015</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p>Amplia sala de estar luminosa, cocina independiente totalmente equipada, dos dormitorios con armarios empotrados y un baño completo con plato de ducha. Ubicación excelente, a 5 minutos de metro y rodeado de servicios.</p>
+            </div>
+          </div>
+
+          <!-- ===== Comodidades ===== -->
+          <div class="tab-pane fade" id="amenities" role="tabpanel" aria-labelledby="amenities-tab">
+            <h4 class="mb-3">Comodidades y equipamiento</h4>
+            <div class="row small">
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Ascensor</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Aire acondicionado</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Calefacción</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Amueblado</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Parking</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Terraza</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Internet</div>
+              <div class="col-6 col-md-3 mb-2"><i class="fa fa-check text-success"></i> Lavadora</div>
+            </div>
+          </div>
+
+          <!-- ===== Ubicación ===== -->
+          <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+            <h4 class="mb-3">Ubicación</h4>
+            <p><i class="fa fa-map-marker text-primary"></i> Calle Principal, 123 – Centro</p>
+            <div class="embed-responsive embed-responsive-16by9 mb-3">
+              <!-- iframe de mapa real o placeholder -->
+              <iframe class="embed-responsive-item" src="https://maps.google.com/maps?q=Puerta%20del%20Sol%20Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- ===== Reseñas ===== -->
+          <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+            <h4 class="mb-4">Reseñas</h4>
+            <div class="media mb-4">
+              <img src="img/product/review-1.png" class="mr-3 rounded-circle" alt width="60" />
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Juan Carlos Ponce de León <small class="text-muted">— Hace 2 semanas</small></h5>
+                <span class="text-warning">★★★★★</span>
+                <p>Excelente piso, muy luminoso y bien ubicado. El propietario fue muy atento durante todo el proceso.</p>
+              </div>
+            </div>
+            <div class="media mb-4">
+              <img src="img/product/review-2.png" class="mr-3 rounded-circle" alt width="60" />
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">Carlos López <small class="text-muted">— Hace 1 mes</small></h5>
+                <span class="text-warning">★★★★★</span>
+                <p>Viví aquí durante un año y fue una experiencia maravillosa. La terraza es perfecta para desayunar los fines de semana.</p>
+              </div>
+            </div>
+            <!-- Formulario reseña simple -->
+            <form class="mt-4">
+              <div class="form-group">
+                <label for="reviewTextarea">Tu reseña</label>
+                <textarea class="form-control" id="reviewTextarea" rows="3" placeholder="Comparte tu experiencia..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar reseña</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Propiedades similares ================= -->
+    <div class="row mt-5">
+      <div class="col-12"><h3 class="mb-4">Propiedades similares</h3></div>
+
+      <!-- Card 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="..." />
+            <span class="badge badge-primary position-absolute" style="top:10px;left:10px">750€/mes</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Piso reformado en zona céntrica</h5>
+            <p class="small text-muted mb-2"><i class="fa fa-map-marker text-primary"></i> Calle Secundaria, 45</p>
+            <ul class="list-inline small mb-3">
+              <li class="list-inline-item"><i class="fa fa-bed text-primary"></i> 2</li>
+              <li class="list-inline-item"><i class="fa fa-bath text-primary"></i> 1</li>
+              <li class="list-inline-item"><i class="fa fa-ruler-combined text-primary"></i> 70 m²</li>
+            </ul>
+            <a href="single-product.html" class="btn btn-outline-primary btn-block">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="..." />
+            <span class="badge badge-primary position-absolute" style="top:10px;left:10px">850€/mes</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Ático con terraza panorámica</h5>
+            <p class="small text-muted mb-2"><i class="fa fa-map-marker text-primary"></i> Avenida Principal, 78</p>
+            <ul class="list-inline small mb-3">
+              <li class="list-inline-item"><i class="fa fa-bed text-primary"></i> 3</li>
+              <li class="list-inline-item"><i class="fa fa-bath text-primary"></i> 2</li>
+              <li class="list-inline-item"><i class="fa fa-ruler-combined text-primary"></i> 95 m²</li>
+            </ul>
+            <a href="single-product.html" class="btn btn-outline-primary btn-block">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="position-relative">
+            <img src="img/viviendas/vivienda2/vivienda2.jpg" class="card-img-top" alt="..." />
+            <span class="badge badge-primary position-absolute" style="top:10px;left:10px">680€/mes</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Piso luminoso con balcón</h5>
+            <p class="small text-muted mb-2"><i class="fa fa-map-marker text-primary"></i> Calle Nueva, 12</p>
+            <ul class="list-inline small mb-3">
+              <li class="list-inline-item"><i class="fa fa-bed text-primary"></i> 1</li>
+              <li class="list-inline-item"><i class="fa fa-bath text-primary"></i> 1</li>
+              <li class="list-inline-item"><i class="fa fa-ruler-combined text-primary"></i> 55 m²</li>
+            </ul>
+            <a href="single-product.html" class="btn btn-outline-primary btn-block">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro. ¡Bienvenido a la manera más fácil de alquilar!</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Sé parte de nuestra comunidad</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          © 2025 InstaRent |
+          <a href="condiciones_uso.html">Condiciones de uso</a> |
+          <a href="politica_privacidad.html">Política de privacidad</a> |
+          <a href="politica_cookies.html">Política de cookies</a> |
+          <a href="politica_copyright.html">Política de copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======= SCRIPTS ======= -->
+  <!-- Scripts (igual que en index.html) -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" 
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+
+  <script>
+    // Valoración estrellas
+    const stars = document.querySelectorAll('.star-rating i');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach((s, i) => {
+          if (i <= index) s.classList.add('rated');
+          else s.classList.remove('rated');
+        });
+      });
+    });
+  </script>
+  <script src="../scripts/header_loader.js"></script>
+
+</body>

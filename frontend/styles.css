@@ -1,0 +1,1573 @@
+/* Reseteo básico */
+* {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Encabezado */
+  header {
+    background-color: #ffd700;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    background: #ffcc00;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+  
+  /* Barra lateral fija (aside) */
+  .filters {
+    position: fixed;       /* Fijo para que no se mueva al hacer scroll */
+    top: 0;               /* Empieza desde arriba */
+    left: 0;              /* Pegado al lado izquierdo */
+    width: 300px;         /* Ancho fijo de la barra */
+    height: 100%;         /* Ocupa toda la altura de la ventana */
+    background: #ffcc00;  /* Color de fondo amarillo */
+    overflow-y: auto;     /* Si los filtros son muy largos, se hace scroll en la barra */
+    padding: 10px;
+  }
+  
+  /* Botón de perfil (emoticono) arriba del mapa */
+  .profile-button {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .profile-btn {
+    background: #ffcc00;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Contenedor del mapa dentro de la barra lateral */
+  .map-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Opciones de filtro */
+  .filter-options {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Grupos de filtro en bloque */
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Barras de rango de precio */
+  .price-range {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  /* Acciones de filtro (botones) */
+  .filter-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .filter-actions button {
+    background: orange;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+  
+  /* Contenido principal (main) */
+  main {
+    /* Deja espacio a la izquierda para que no se superponga con aside */
+    margin-left: 300px; 
+    padding: 20px;
+    height: 100vh;       /* Para que ocupe la pantalla completa */
+    overflow-y: auto;    /* Hace que el contenido principal sea desplazable */
+  }
+  
+  /* Listados */
+  .listings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Cada propiedad (anuncio) */
+  .property {
+    display: flex;
+    background: yellow;
+    padding: 20px;
+    align-items: center;
+    /* Bordes redondeados y sombra */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    
+    /* Para que ocupe bastante espacio en la pantalla,
+       de modo que solo quepan 2 anuncios visibles a la vez
+       (aproximado, depende del tamaño de pantalla) */
+    min-height: 40vh;
+  }
+  
+  /* Imagen más grande y destacada */
+  .property img {
+    width: 300px;       /* Ajusta según tu preferencia */
+    height: auto;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Sección de información (título, descripción, estrellas, botón) */
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Para ocupar el resto del espacio horizontal */
+  }
+  
+  /* Estilos para las estrellas */
+  .stars {
+    margin: 5px 0;
+  }
+  
+  .star {
+    font-size: 1.5rem;
+    color: #ccc;        /* Estrella vacía */
+  }
+  
+  .star.filled {
+    color: gold;        /* Estrella llena */
+  }
+  
+  .info button {
+    background: orange;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+    align-self: flex-start; /* Para que no ocupe todo el ancho */
+  }
+
+  /* FOOTER */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ffa500; /* Naranja fuerte */
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+  
+
+ /************************************
+ * Estilos para la página pisos.html
+ ************************************/
+
+/* Reset básico para este detalle */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    background: #f4f4f4;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Contenedor principal del detalle */
+  .detail-main {
+    margin: 120px auto 50px auto;  /* Espacio superior para dejar al header fijo (si lo tienes) */
+    max-width: 1200px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título con tipografía bonita */
+  .detail-title {
+    font-family: "Georgia", serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Contenedor de la galería de imágenes */
+  .image-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar las flechas */
+  }
+  
+  /* Flechas laterales */
+  .arrow {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background 0.3s, transform 0.3s;
+    color: #fff;
+  }
+  
+  .arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+  }
+  
+  /* Imagen principal con zoom al hover */
+  .main-image {
+    width: 600px;
+    height: 400px; /* Altura deseada, ajusta según prefieras */
+    overflow: hidden; /* Evita que el zoom se salga del contenedor */
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: zoom-in;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .main-image img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Thumbnails (miniaturas) */
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .thumbnails .thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border 0.2s, transform 0.2s;
+  }
+  
+  .thumbnails .thumb:hover {
+    border: 2px solid #000;
+    transform: scale(1.05);
+  }
+  
+  /* Sección inferior: descripción y datos del casero */
+  .detail-info {
+    display: flex;
+    flex-wrap: wrap; /* Se adapta en pantallas pequeñas */
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Descripción a la izquierda */
+  .description {
+    flex: 1 1 60%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  
+  /* Información del casero a la derecha */
+  .landlord-info {
+    flex: 1 1 35%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .landlord-info h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+  
+  /* Estrellas dentro de la información del casero */
+  .landlord-info .star {
+    color: #ccc;
+    font-size: 1.2rem;
+  }
+  
+  .landlord-info .star.filled {
+    color: gold;
+  }
+/************************************
+ * Estilos para la página trabajadores.html
+ ************************************/
+
+/* Sección de filtros */
+.trabajadores-filters {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffcc00;
+    border-radius: 5px;
+  }
+  .trabajadores-filters h2 {
+    margin-bottom: 10px;
+    font-family: "Georgia", serif;
+    color: #333;
+  }
+  .trabajadores-filters .filter-group {
+    margin-bottom: 10px;
+  }
+  .trabajadores-filters label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .trabajadores-filters select,
+  .trabajadores-filters input[type="range"] {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  .trabajadores-filters button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    background: orange;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .trabajadores-filters button:hover {
+    background: darkorange;
+  }
+  
+  /* Grid de anuncios */
+  .trabajadores-grid {
+    width: 100%;
+    max-width: 1200px;  /* Ancho máximo deseado */
+    margin: 20px auto;  /* Separa de los filtros y centra el contenedor */
+    /* Layout responsive:
+       - auto-ajusta columnas según el ancho de la pantalla
+       - cada columna mínimo 250px, máximo 1fr
+    */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Cada anuncio con tamaño cuadrado fijo y estilo */
+  .trabajador {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    /* Fuerza que cada anuncio sea un cuadrado */
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  /* Efecto hover */
+  .trabajador:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Imagen dentro del anuncio */
+  .trabajador img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Título y texto */
+  .trabajador h3 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+  }
+  .trabajador p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 3px 0;
+  }
+
+/************************************
+ * Estilos para la página trabajadores.html
+ ************************************/
+
+/* MODAL base */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en pantalla */
+    z-index: 9999;   /* Sobre todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;  /* Permite scroll si es muy largo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background-color: #fff;
+    margin: 80px auto; /* Separa del top y centra horizontalmente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;  /* Ancho máximo */
+    position: relative; /* Para ubicar la X */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  /* Botón de cerrar (X) */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -5px;
+  }
+  .close:hover {
+    color: #000;
+  }
+  
+  /* Título dentro del modal */
+  .modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  /* Chat box */
+  .chat-box {
+    max-height: 200px;  /* Limitar altura */
+    overflow-y: auto;   /* Scroll si excede */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background: #fafafa;
+  }
+  .chat-bubble {
+    background: #e1e1e1;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin: 5px 0;
+    width: fit-content;
+    max-width: 80%;
+  }
+  .chat-bubble.user {
+    background: #d4f0ff;
+    align-self: flex-end;
+  }
+  .chat-bubble.worker {
+    background: #ffe1a8;
+    align-self: flex-start;
+  }
+  
+  /* Para alinear burbujas de chat, podemos usar un display flex */
+  .chat-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Número de teléfono borroso */
+  .blurred {
+    filter: blur(4px);
+  }
+  
+  /* Botón contratar */
+  .contratar-btn {
+    background: orange;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .contratar-btn:hover {
+    background: darkorange;
+  }
+  
+  /* Ajusta si deseas un estilo extra para .phone-info */
+  .phone-info {
+    margin-bottom: 15px;
+  }
+
+/************************************
+ * Estilos para la página crear_alquiler.html
+ ************************************/
+
+/* Contenedor principal */
+.crear-alquiler-main {
+    max-width: 800px;
+    margin: 40px auto; /* centra y separa del header */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Título */
+  .crear-alquiler-main h1 {
+    font-family: "Georgia", serif;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Texto de introducción */
+  .intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  /* Formulario */
+  .crear-alquiler-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Cada grupo de campo */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left; /* Alinea los textos a la izquierda */
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="file"],
+  .form-group textarea,
+  .form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Botón para publicar */
+  .btn-publicar {
+    align-self: center; /* centra el botón */
+    background: orange;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .btn-publicar:hover {
+    background: darkorange;
+  }
+  
+/************************************
+ * Estilos para la página reseñas.html
+ ************************************/
+
+
+/* Estilos específicos para reseñas.html */
+
+/* Contenedor principal de reseñas */
+.reviews-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.reviews-container h1 {
+    text-align: center;
+    font-family: "Georgia", serif;
+    margin-bottom: 30px;
+}
+
+/* Cada reseña */
+.review {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+.review:last-child {
+    border-bottom: none;
+}
+
+/* Cabecera de la reseña: nombre y rating */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.review-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+.review-rating {
+    font-size: 1.2rem;
+    color: gold;
+}
+
+/* Texto del comentario */
+.review-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/************************************
+ * Estilos para la página perfil.html
+ ************************************/
+
+/* Estilos específicos para la página de perfil */
+
+.profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.profile-container h1 {
+    text-align: center;
+    font-family: "Georgia", serif;
+    margin-bottom: 20px;
+}
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.profile-photo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.profile-photo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+.profile-photo input[type="file"] {
+    padding: 5px;
+}
+.btn-save {
+    align-self: center;
+    background: orange;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-save:hover {
+    background: darkorange;
+}
+
+/************
+ *              SEVA
+ ************/
+
+ /************
+ * Estilos para la página sign_in.html
+ ************/
+
+.signup-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header específico para la página de registro */
+  .signup-header {
+    background-color: #ffd700; /* Amarillo */
+    padding: 25px; /* Aumentamos el tamaño */
+    text-align: center;
+    position: relative;
+  }
+  
+  .signup-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Contenedor principal del formulario */
+  .signup-main {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos del formulario de registro */
+  #register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Mensaje de error */
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Botón de envío */
+  button[type="submit"] {
+    padding: 12px;
+    background-color: orange;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: darkorange;
+  }
+  
+
+ 
+   /************
+ * Estilos para la página log_in.html
+ ************/
+/* log_in.css - Estilos específicos para la página de inicio de sesión */
+
+/* Base y contenedor de la página */
+/* Estilos generales */
+.login-header {
+  background-color: #ffd700; /* Amarillo */
+  padding: 25px; /* Aumentamos el tamaño */
+  text-align: center;
+  position: relative;
+}
+
+.login-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.company-logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Contenedor principal */
+.login-main {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Botón de inicio de sesión con Google */
+.google-login {
+  width: 100%;
+  padding: 12px;
+  background-color: #db4437;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-login img {
+  width: 20px;
+}
+
+/* Separador con línea y "O" */
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.separator span {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.separator p {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Formulario */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Checkbox alineado */
+.checkbox-group {
+  display: flex;
+  align-items: left; /* Asegura que el texto y el checkbox estén alineados en la misma línea */
+  gap: 8px; /* Espacio entre el texto y el checkbox */
+}
+
+.checkbox-group label {
+  white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  display: flex;
+  padding-right: 8px;
+}
+
+.checkbox-group input {
+  width: 16px; /* Tamaño estándar del checkbox */
+  height: 16px;
+  cursor: pointer; /* Hace que el cursor cambie al pasar sobre el checkbox */
+  margin-left: 8px;
+}
+
+/* Enlace de recuperación de contraseña */
+.password-recovery {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.password-recovery a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.password-recovery a:hover {
+  text-decoration: underline;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.show-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 10px;
+  color: #555;
+}
+
+
+/* Botón de envío */
+button[type="submit"] {
+  padding: 12px;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: darkorange;
+}
+
+
+/************
+ * Estilos para la página recuperar_contrasena.html
+ ************/
+/* recuperar_contrasena.css - Estilos específicos para la página de inicio de sesión */
+/* Página de recuperación de contraseña */
+.recovery-page {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header con el logo */
+.recovery-header {
+  background-color: #ffd700;
+  padding: 42px;
+  text-align: left;
+  position: relative;
+}
+
+.company-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  left: 360px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contenedor principal */
+.recovery-main {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título y descripción en una sola línea */
+.recovery-main h1 {
+  display: inline; /* Para que estén en la misma línea */
+  font-size: 1.8rem; /* Tamaño uniforme */
+}
+
+.recovery-main p {
+  margin-top: 30px;
+  text-align: left;
+}
+
+/* Formulario */
+#recovery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botones */
+.button-group {
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.btn-primary {
+  padding: 12px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #e8bd21;
+  border-radius: 5px;
+  color: #e8bd21;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(217, 203, 3);
+  color: #fff;
+}
+
+
+
+/************
+ * Estilos para la página condiciones_uso.html
+ ************/
+
+/* Página de Condiciones de Uso */
+.terms-page {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1; /* Fondo amarillo claro */
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header con logo y título */
+.terms-header {
+  background-color: #ffa500; /* Naranja fuerte */
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.terms-header h1 {
+  text-align: center;
+  color: #fff;  /* Ahora el título se verá en blanco */
+  font-size: 2rem;
+}
+
+/* Logo de la empresa */
+.company-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contenido principal */
+.terms-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de los títulos */
+.terms-main h1 {
+  text-align: left;
+  font-size: 2rem;
+  color: #e47e00; /* Naranja oscuro */
+  margin-bottom: 10px;
+}
+
+.terms-main h2 {
+  color: #d68910; /* Naranja oscuro para subtítulos */
+  margin-top: 20px;
+}
+
+/* Párrafos y listas */
+.terms-main p, .terms-main ul {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.terms-main ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Botón de volver */
+.back-button {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #d68910;
+  border-radius: 5px;
+  color: #d68910;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #d68910;
+  color: #fff;
+}
+
+
+/************
+ * Estilos para la página politica_privacidad.html
+ ************/
+
+/* Página de Política de Privacidad */
+.privacy-page {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1; /* Fondo amarillo claro */
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header con logo y título */
+.privacy-header {
+  background-color: #ffa500; /* Naranja fuerte */
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.privacy-header h1 {
+  text-align: center;
+  color: #fff; /* Ahora el título se verá en blanco */
+  font-size: 2rem;
+}
+
+/* Logo de la empresa */
+.company-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contenido principal */
+.privacy-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de los títulos */
+.privacy-main h1 {
+  text-align: left;
+  font-size: 2rem;
+  color: #e47e00; /* Naranja oscuro */
+  margin-bottom: 10px;
+}
+
+.privacy-main h2 {
+  color: #d68910; /* Naranja oscuro para subtítulos */
+  margin-top: 20px;
+}
+
+/* Párrafos y listas */
+.privacy-main p, .privacy-main ul {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.privacy-main ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Botón de volver */
+.back-button {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #d68910;
+  border-radius: 5px;
+  color: #d68910;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #d68910;
+  color: #fff;
+}
+
+
+
+/************
+ * Estilos para la página politica_cookies.html
+ ************/
+
+/* Página de Política de Cookies */
+.cookies-page {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1; /* Fondo amarillo claro */
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.cookies-header {
+  background-color: #ffa500; /* Naranja fuerte */
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.cookies-header h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/* Logo de la empresa */
+.company-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contenido principal */
+.cookies-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.cookies-main h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.cookies-main h2 {
+  color: #d68910; /* Naranja oscuro */
+  margin-top: 20px;
+}
+
+/* Listas */
+.cookies-main ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Botón de volver */
+.back-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #d68910;
+  border-radius: 5px;
+  color: #d68910;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #d68910;
+  color: #fff;
+}
+
+
+/************
+ * Estilos para la página politica_copyright.html
+ ************/
+
+/* Página de Política de Copyright */
+.copyright-page {
+  font-family: Arial, sans-serif;
+  background-color: #fff8e1; /* Fondo amarillo claro */
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.copyright-header {
+  background-color: #ffa500; /* Naranja fuerte */
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.copyright-header h1 {
+  text-align: center;
+  color: #fff;
+}
+
+/* Logo de la empresa */
+.company-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Contenido principal */
+.copyright-main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.copyright-main h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.copyright-main h2 {
+  color: #d68910; /* Naranja oscuro */
+  margin-top: 20px;
+}
+
+.copyright-main h3 {
+  color: #e47e00; /* Tono más oscuro para subtítulos */
+  margin-top: 15px;
+}
+
+/* Listas */
+.copyright-main ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Dirección de contacto */
+address {
+  font-style: normal;
+  margin-top: 10px;
+}
+
+/* Botón de volver */
+.back-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #d68910;
+  border-radius: 5px;
+  color: #d68910;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #d68910;
+  color: #fff;
+}
+
+
+/************
+ * Footer para todas las paginas menos para index.html
+ ************/
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

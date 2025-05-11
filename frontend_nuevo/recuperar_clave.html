@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="CodePixar">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Recuperar Contraseña - InstaRent</title>
+
+  <!--
+    CSS
+    (Igual que en login.html o index.html)
+  -->
+  <link rel="stylesheet" href="css/linearicons.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Tu JS específico para la recuperación (opcional) -->
+  <!-- <script src="js/recuperar_contrasena.js" defer></script> -->
+</head>
+
+<body>
+  <!-- Start Header Area -->
+  <header class="header_area sticky-header">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light main_box">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html">
+            <img src="img/logo.png" alt="Logo InstaRent" style="height: 120px;">
+          </a>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="trabajadores.html">Trabajadores</a></li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   role="button" aria-haspopup="true" aria-expanded="false">Crear</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="crear_alquiler.html">Crear Alquiler</a></li>
+                  <li class="nav-item"><a class="nav-link" href="crear_trabajo.html">Crear Trabajo</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="resenyas.html">Reseñas</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header Area -->
+
+  <!-- Start Banner Area (opcional, para mantener estilo) -->
+  <section class="banner-area organic-breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>Recuperar Contraseña</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Area -->
+
+  <!--================ Password Recovery Box Area =================-->
+  <section class="login_box_area section_gap">
+    <div class="container">
+      <div class="row">
+        <!-- Imagen lateral opcional -->
+        <div class="col-lg-6">
+          <div class="login_box_img">
+            <img class="img-fluid" src="img/login.jpg" alt="">
+            <div class="hover">
+              <h4>¿Volver al inicio?</h4>
+              <p>Si ya recuerdas tu contraseña, regresa para iniciar sesión.</p>
+              <a class="primary-btn" href="login.html">Iniciar Sesión</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de recuperación -->
+        <div class="col-lg-6">
+          <div class="login_form_inner">
+            <h3>Recupera tu Contraseña</h3>
+            <p class="mb-4">
+              Ingresa tu correo para generar una nueva contraseña
+            </p>
+            <form class="row login_form" id="recovery-form" novalidate="novalidate">
+              <div class="col-md-12 form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="tu@correo.com" required>
+              </div>
+              <div class="col-md-12 form-group d-flex justify-content-between">
+                <button type="submit" class="primary-btn filter-btn">Enviar</button>
+                <button type="button" class="primary-btn filter-btn" style="background: #ccc; color: #333;"
+                        onclick="window.location.href='login.html'">
+                  Cancelar
+                </button>
+              </div>
+            </form>
+            <!-- Aquí podrías mostrar un mensaje de éxito/error tras el envío -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================ End Password Recovery Box Area =================-->
+
+  <!-- start footer Area -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>
+                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
+                ¡Bienvenido a la manera más fácil de alquilar!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Seamos sociales</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Tu texto base existente -->
+          <span>© 2025 InstaRent</span> |
+          <a href="condiciones_uso.html">Condiciones de Uso</a> |
+          <a href="politica_privacidad.html">Política de Privacidad</a> |
+          <a href="politica_cookies.html">Política de Cookies</a> |
+          <a href="politica_copyright.html">Política de Copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End footer Area -->
+
+  <!-- Scripts (igual que en login.html) -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!--gmaps Js (si no se usa, puede quitarse)-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="js/gmaps.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Aquí tu lógica de recuperación de contraseña si lo deseas -->
+  <script>
+    document.getElementById('recovery-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Aquí llamarías a tu backend para enviar el mail y procesar la recuperación
+      alert('Se ha enviado un enlace de recuperación a tu correo.');
+      // Redirección u otro comportamiento
+    });
+  </script>
+</body>
+</html>

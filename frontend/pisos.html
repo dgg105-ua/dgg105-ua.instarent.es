@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle del Piso</title>
+
+  <!-- Reutilizamos tu mismo styles.css -->
+  <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Podemos añadir un archivo CSS adicional para estilos específicos del detalle -->
+  <link rel="stylesheet" href="detalle.css" />
+
+  <!-- Si quieres reutilizar tu mismo script, puedes enlazarlo.
+       O crear uno nuevo para el carrusel. Aquí lo haré en "detalle.js" por claridad. -->
+  <script src="scripts/pisos.js" defer></script>
+</head>
+<body>
+
+  <!-- Header (igual que en index.html, si deseas mantener la misma apariencia) -->
+  <header>
+    <div class="top-bar">
+      <span>PERFIL</span>
+      <div class="auth-links">
+        <a href="#">LOG IN</a> | <a href="#">SIGN UP</a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">ALQUILAR</a></li>
+        <li><a href="crear_alquiler.html">CREAR ALQUILER</a></li>
+        <li><a href="trabajadores.html">TRABAJADORES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal del detalle -->
+  <main class="detail-main">
+    
+    <!-- Título con tipografía bonita -->
+    <h1 class="detail-title">Piso en el Centro de la Ciudad</h1>
+
+    <!-- Contenedor principal de imágenes -->
+    <div class="image-gallery">
+      <!-- Flecha izquierda -->
+      <div class="arrow left-arrow" id="arrow-left"> &lt; </div>
+      
+      <!-- Imagen principal -->
+      <div class="main-image" id="main-image-container">
+        <!-- Por defecto mostramos listing_piso1.png -->
+        <img id="main-image" src="img/listing_piso_1.png" alt="Imagen principal del piso">
+      </div>
+
+      <!-- Flecha derecha -->
+      <div class="arrow right-arrow" id="arrow-right"> &gt; </div>
+    </div>
+
+    <!-- Thumbnails (miniaturas) de las demás imágenes (hasta 7 más) -->
+    <div class="thumbnails">
+      <!-- Ejemplo de 5 miniaturas. Añade más si lo deseas (hasta 8 total) -->
+      <img class="thumb" src="img/listing_piso_2.png" alt="Miniatura 2">
+      <img class="thumb" src="img/listing_piso_3.png" alt="Miniatura 3">
+      <img class="thumb" src="img/listing_piso_4.png" alt="Miniatura 4">
+      <img class="thumb" src="img/listing_piso_5.png" alt="Miniatura 5">
+      <img class="thumb" src="img/listing_piso_6.png" alt="Miniatura 6">
+    </div>
+
+    <!-- Sección inferior: descripción a la izquierda, datos del casero a la derecha -->
+    <div class="detail-info">
+      <!-- Descripción -->
+      <div class="description">
+        <h2>Descripción del Piso</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+          ultrices elit. Cras nec dui vitae lacus luctus congue. Integer in sem
+          neque. Pellentesque habitant morbi tristique senectus et netus et 
+          malesuada fames ac turpis egestas. 
+        </p>
+        <p>
+          Vivamus a augue a metus interdum porttitor. Nulla facilisi. Etiam at
+          enim nibh. Vestibulum ante ipsum primis in faucibus orci luctus et 
+          ultrices posuere cubilia curae.
+        </p>
+      </div>
+
+      <!-- Resumen del casero -->
+      <div class="landlord-info">
+        <h2>Información del Casero</h2>
+        <p><strong>Nombre:</strong> Juan Pérez</p>
+        <p><strong>Personas alojadas:</strong> 25</p>
+        <p>
+          <strong>Valoración media:</strong> 
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star filled">★</span>
+          <span class="star">★</span>
+          (4.0)
+        </p>
+        <h3>Valoraciones destacadas:</h3>
+        <ul>
+          <li>
+            <em>"Excelente anfitrión, muy atento."</em> - María
+          </li>
+          <li>
+            <em>"El piso estaba impecable y la comunicación fue genial."</em> - Carlos
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>InstaRent</span>
+    <span>© 2025</span>
+    <a href="condiciones_uso.html">Condiciones de uso</a> |
+    <a href="politica_privacidad.html">Política de privacidad</a> |
+    <a href="politica_cookies.html">Política de cookies</a>|
+    <a href="politica_copyright.html">Política de copyright</a>
+  </footer>
+  
+</body>
+</html>

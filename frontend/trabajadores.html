@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabajadores</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="/scripts/trabajadores.js" defer></script>
+
+</head>
+<body>
+  <!-- Header (igual que en el resto de la web) -->
+  <header>
+    <div class="top-bar">
+      <span>PERFIL</span>
+      <div class="auth-links">
+        <a href="index.html">LOG IN</a> | <a href="#">SIGN UP</a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">ALQUILAR</a></li>
+        <li><a href="crear_alquiler.html">CREAR ALQUILER</a></li>
+        <li><a href="trabajadores.html">TRABAJADORES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección de filtros -->
+  <section class="trabajadores-filters">
+    <h2>Filtros de Trabajadores</h2>
+    <div class="filter-group">
+      <label for="categoria">Categoría:</label>
+      <select id="categoria">
+        <option value="">Todas</option>
+        <option value="limpieza">Limpieza</option>
+        <option value="mantenimiento">Mantenimiento</option>
+        <option value="seguridad">Seguridad</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="experiencia">Experiencia (años):</label>
+      <input type="range" id="experiencia" name="experiencia" min="0" max="20" value="5">
+    </div>
+    <div class="filter-group">
+      <label for="valoracion">Valoración mínima:</label>
+      <select id="valoracion">
+        <option value="">Cualquiera</option>
+        <option value="1">1 estrella</option>
+        <option value="2">2 estrellas</option>
+        <option value="3">3 estrellas</option>
+        <option value="4">4 estrellas</option>
+        <option value="5">5 estrellas</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <button type="button">Filtrar</button>
+      <button type="button">Quitar Filtros</button>
+    </div>
+  </section>
+
+  <!-- Grid de anuncios -->
+  <section class="trabajadores-grid">
+    <div class="trabajador">
+      <img src="img/trabajador_1.jpg" alt="Trabajador 1">
+      <h3>Juan López</h3>
+      <p>Limpieza</p>
+      <p>4.5 ★</p>
+    </div>
+    <div class="trabajador">
+      <img src="img/trabajador_2.jpg" alt="Trabajador 2">
+      <h3>Ana García</h3>
+      <p>Mantenimiento</p>
+      <p>4.0 ★</p>
+    </div>
+    <div class="trabajador">
+      <img src="img/trabajador_3.jpg" alt="Trabajador 3">
+      <h3>Carlos Pérez</h3>
+      <p>Seguridad</p>
+      <p>4.8 ★</p>
+    </div>
+    <div class="trabajador">
+      <img src="img/trabajador_4.jpg" alt="Trabajador 4">
+      <h3>María Sánchez</h3>
+      <p>Limpieza</p>
+      <p>4.2 ★</p>
+    </div>
+    <div class="trabajador">
+      <img src="img/trabajador_5.jpg" alt="Trabajador 5">
+      <h3>Roberto Ruiz</h3>
+      <p>Mantenimiento</p>
+      <p>3.9 ★</p>
+    </div>
+    <div class="trabajador">
+      <img src="img/trabajador_6.jpg" alt="Trabajador 6">
+      <h3>Laura Gómez</h3>
+      <p>Seguridad</p>
+      <p>4.6 ★</p>
+    </div>
+  </section>
+
+  <!-- MODAL: conversación de chat, botón Contratar, número borroso -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <!-- Botón para cerrar el modal -->
+      <span class="close" id="closeModal">&times;</span>
+
+      <!-- Simulación de chat -->
+      <h2>Chat con el trabajador</h2>
+      <div class="chat-box">
+        <div class="chat-bubble user">Hola, estoy interesado en tus servicios</div>
+        <div class="chat-bubble worker">Hola, claro. ¿Qué necesitas exactamente?</div>
+        <!-- Más mensajes ficticios... -->
+      </div>
+
+      <!-- Número de teléfono borroso -->
+      <div class="phone-info">
+        <p>Número de teléfono: 
+          <span class="blurred" id="phoneNumber">666 123 456</span>
+        </p>
+      </div>
+
+      <!-- Botón Contratar -->
+      <button id="contratarBtn" class="contratar-btn">Contratar</button>
+    </div>
+  </div>
+
+</body>
+
+<footer class="footer">
+  <span>InstaRent</span>
+  <span>© 2025</span>
+  <a href="condiciones_uso.html">Condiciones de uso</a> |
+  <a href="politica_privacidad.html">Política de privacidad</a> |
+  <a href="politica_cookies.html">Política de cookies</a>|
+  <a href="politica_copyright.html">Política de copyright</a>
+</footer>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - Inmobiliaria</title>
+  <!-- Enlazamos el CSS específico para la página de inicio de sesión -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts/log_in.js" defer></script>
+</head>
+<body class="login-page">
+  <header class="login-header">
+    <a href="index.html" class="company-logo">InstaRent</a>
+    <h1>Iniciar sesión</h1>
+  </header>
+
+  <main class="login-main">
+    <!-- Botón de inicio de sesión con Google -->
+    <button class="google-login">
+      <img src="img/google.png" alt="Google"> Iniciar sesión con Google
+    </button>
+
+    <!-- Separador con línea y "O" -->
+    <div class="separator">
+      <span></span>
+      <p>O</p>
+      <span></span>
+    </div>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+        <button type="button" id="toggle-password">👁</button>
+      </div>      
+      
+
+      <!-- Enlace para recuperar contraseña -->
+      <div class="password-recovery">
+        <a href="recuperar_contrasena.html">¿Has olvidado tu contraseña?</a>
+      </div>
+
+      <!-- Checkbox para mantener la sesión iniciada -->
+      <div class="form-group checkbox-group">
+        <label for="keep-session">Mantener la sesión iniciada <input type="checkbox" id="keep-session"></label>
+      </div>
+      
+
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <span>InstaRent</span>
+    <span>© 2025</span>
+    <a href="condiciones_uso.html">Condiciones de uso</a> |
+    <a href="politica_privacidad.html">Política de privacidad</a> |
+    <a href="politica_cookies.html">Política de cookies</a>|
+    <a href="politica_copyright.html">Política de copyright</a>
+  </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="/scripts/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <span>PERFIL</span>
+      <div class="auth-links">
+        <a href="reseñas.html">RESEÑAS</a> |<a href="log_in.html">LOG IN</a> | <a href="sing_up.html">SIGN UP</a>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">ALQUILAR</a></li>
+        <li><a href="crear_alquiler.html">CREAR ALQUILER</a></li>
+        <li><a href="trabajadores.html">TRABAJADORES</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Barra lateral fija con el mapa y los filtros -->
+  <aside class="filters">
+    <!-- Botón de perfil con emoticono de persona -->
+    <div class="profile-button" href="perfil.html">
+        <a href="perfil.html" style="text-decoration:none;">
+            <button class="profile-btn">👤</button>
+          </a>
+    </div>
+
+    <!-- Mapa en la parte superior -->
+    <div class="map-container">
+      <img src="img/mapa.png" alt="Mapa de alquileres" />
+    </div>
+    
+    <!-- Opciones de filtro debajo del mapa -->
+    <div class="filter-options">
+      <h2>Filtros</h2>
+
+      <!-- Filtro Precio con dos controles tipo range -->
+      <div class="filter-group">
+        <label>Precio</label>
+        <div class="price-range">
+          <label for="price-min">Mínimo</label>
+          <input type="range" id="price-min" name="price-min" min="0" max="1000" value="100">
+          <label for="price-max">Máximo</label>
+          <input type="range" id="price-max" name="price-max" min="0" max="1000" value="500">
+        </div>
+      </div>
+
+      <!-- Filtro Número de habitaciones -->
+      <div class="filter-group">
+        <label for="rooms">Número de habitaciones</label>
+        <select id="rooms" name="rooms">
+          <option value="">Cualquiera</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5+</option>
+        </select>
+      </div>
+
+      <!-- Filtro Número de baños -->
+      <div class="filter-group">
+        <label for="bathrooms">Número de baños</label>
+        <select id="bathrooms" name="bathrooms">
+          <option value="">Cualquiera</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3+</option>
+        </select>
+      </div>
+
+      <!-- Filtro Valoración del casero -->
+      <div class="filter-group">
+        <label for="rating">Valoración del casero</label>
+        <select id="rating" name="rating">
+          <option value="">Cualquiera</option>
+          <option value="1">1 estrella</option>
+          <option value="2">2 estrellas</option>
+          <option value="3">3 estrellas</option>
+          <option value="4">4 estrellas</option>
+          <option value="5">5 estrellas</option>
+        </select>
+      </div>
+
+      <!-- Botones para aplicar o quitar filtros -->
+      <div class="filter-actions">
+        <button type="button" class="apply-filters">Filtrar</button>
+        <button type="button" class="clear-filters">Quitar filtros</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Contenido principal: anuncios -->
+  <main>
+    <section class="listings">
+      
+      <!-- Ejemplo de anuncio con 3 estrellas llenas de 5 -->
+      <div class="property">
+        <img src="img/piso_1.jpg" alt="Casa 1">
+        <div class="info">
+          <h3>TITULO</h3>
+          <!-- Estrellas: 3 llenas, 2 vacías -->
+          <div class="stars">
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p>DESCRIPCIÓN: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button>PRECIO</button>
+        </div>
+      </div>
+      
+      <!-- Ejemplo de anuncio con 5 estrellas llenas -->
+      <div class="property">
+        <img src="img/piso_2.jpg" alt="Casa 2">
+        <div class="info">
+          <h3>TITULO</h3>
+          <!-- Estrellas: 5 llenas -->
+          <div class="stars">
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+          </div>
+          <p>DESCRIPCIÓN: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <button>PRECIO</button>
+        </div>
+      </div>
+      
+      <!-- Puedes añadir más anuncios si deseas, 
+           se verá el scroll al bajar (solo 2 en pantalla a la vez) -->
+      <div class="property">
+        <img src="img/piso_3.jpg" alt="Casa 3">
+        <div class="info">
+          <h3>TITULO</h3>
+          <!-- Estrellas: 4 llenas, 1 vacía -->
+          <div class="stars">
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star filled">★</span>
+            <span class="star">★</span>
+          </div>
+          <p>DESCRIPCIÓN: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+          <button>PRECIO</button>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="condiciones_uso.html">Condiciones de Uso</a>
+      <a href="politica_privacidad.html">Política de Privacidad</a>
+      <a href="politica_cookies.html">Política de Cookies</a>
+      <a href="politica_copyright.html">Política de Copyright</a>
+    </div>
+    <p>© 2025 InstaRent - Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

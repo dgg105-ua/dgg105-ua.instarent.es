@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <!-- Etiquetas meta para dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Autor y descripción -->
+  <meta name="author" content="CodePixar">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <!-- Juego de caracteres -->
+  <meta charset="UTF-8">
+  <!-- Título de la página -->
+  <title>Crear Cuenta - InstaRent</title>
+
+  <!-- CSS de la plantilla -->
+  <link rel="stylesheet" href="css/linearicons.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Tu propio archivo JavaScript, si deseas validar o manejar el form -->
+  <!-- <script src="scripts/sign_in.js" defer></script> -->
+</head>
+
+<body>
+  <!-- Start Header Area (similar a login.html) -->
+  <!-- Para no fijar el header, quita sticky-header -->
+  <header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light main_box">
+        <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand logo_h" href="index.html">
+            <img src="img/logo.png" alt="Logo InstaRent" style="height: 120px;">
+          </a>
+          <!-- Botón hamburguesa mobile -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Enlaces -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="trabajadores.html">Trabajadores</a></li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   role="button" aria-haspopup="true" aria-expanded="false">Crear</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="crear_alquiler.html">Crear Alquiler</a></li>
+                  <li class="nav-item"><a class="nav-link" href="crear_trabajo.html">Crear Trabajo</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="resenyas.html">Reseñas</a></li>
+              <!-- Si ya tenemos la página de login, el botón “Registro” nos traería aquí -->
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Log IN</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header Area -->
+
+  <!-- Start Banner Area (opcional, si quieres imitar login.html) -->
+  <section class="banner-area organic-breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>Crear Cuenta</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Area -->
+
+  <!--================ Registration Box Area =================-->
+  <section class="login_box_area section_gap">
+    <div class="container">
+      <div class="row">
+        <!-- Imagen o texto motivacional (opcional) -->
+        <div class="col-lg-6">
+          <div class="login_box_img">
+            <!-- Si no quieres imagen, quita este div y haz que col-lg-12 para el form -->
+            <img class="img-fluid" src="img/login.jpg" alt="Imagen de registro">
+            <div class="hover">
+              <h4>¿Ya tienes cuenta?</h4>
+              <p>Inicia sesión y explora nuestras viviendas y servicios.</p>
+              <a class="primary-btn" href="login.html">Iniciar Sesión</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de registro -->
+        <div class="col-lg-6">
+          <div class="login_form_inner">
+            <h3>Crear una Cuenta Nueva</h3>
+            <form class="row login_form" id="register-form" method="post" novalidate="novalidate">
+              <!-- Nombre -->
+              <div class="col-md-12 form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name"
+                       placeholder="Tu nombre" required>
+              </div>
+              <!-- Apellidos -->
+              <div class="col-md-12 form-group">
+                <label for="apellido">Apellidos:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido"
+                       placeholder="Tu(s) apellido(s)" required>
+              </div>
+              <!-- Correo -->
+              <div class="col-md-12 form-group">
+                <label for="email">Correo:</label>
+                <input type="email" class="form-control" id="email" name="email"
+                       placeholder="tu@correo.com" required>
+              </div>
+              <!-- DNI o Móvil -->
+              <div class="col-md-12 form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" class="form-control" id="dni" name="dni"
+                       placeholder="Introduce tu DNI" required>
+              </div>
+              <div class="col-md-12 form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="text" class="form-control" id="telefono" name="telefono"
+                       placeholder="Introduce tu Telefono" required>
+              </div>
+              <div class="col-md-12 form-group">
+                <label for="fecha_nacimiento">Fecha nacimiento:</label>
+                <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
+                       placeholder="Introduce tu fecha de nacimiento" required>
+              </div>
+              <!-- Contraseña -->
+              <div class="col-md-12 form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       placeholder="Contraseña" required>
+              </div>
+              <!-- Confirmar Contraseña -->
+              <div class="col-md-12 form-group">
+                <label for="confirm-password">Confirmar Contraseña:</label>
+                <input type="password" class="form-control" id="confirm-password"
+                       name="confirm-password" placeholder="Repite la contraseña" required>
+              </div>
+              <!-- Mensaje de error (opcional) -->
+              <div class="col-md-12 form-group">
+                <div id="error-message" class="error-message text-danger"></div>
+              </div>
+              <!-- Botón de Registro -->
+              <div class="col-md-12 form-group">
+                <button type="submit" class="primary-btn">Registrarse</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Registration Box Area =================-->
+
+  <!-- start footer Area -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>
+                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
+                ¡Bienvenido a la manera más fácil de alquilar!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Seamos sociales</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Tu texto base existente -->
+          <span>© 2025 InstaRent</span> |
+          <a href="condiciones_uso.html">Condiciones de Uso</a> |
+          <a href="politica_privacidad.html">Política de Privacidad</a> |
+          <a href="politica_cookies.html">Política de Cookies</a> |
+          <a href="politica_copyright.html">Política de Copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End footer Area -->
+
+  <!-- Scripts (igual que en login.html) -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!--gmaps Js (si no lo usas, puedes quitarlo) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="js/gmaps.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Aquí podrías insertar tu lógica de validación del form, si deseas -->
+  <script>
+    document.getElementById('register-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+    
+      const nombre = document.getElementById('name').value;
+      const apellidos = document.getElementById('apellido').value;
+      const correo = document.getElementById('email').value;
+      const dni = document.getElementById('dni').value;
+      const contrasena = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm-password').value;
+      const telefono = document.getElementById('telefono').value;
+      const fecha_nacimiento = document.getElementById('fecha_nacimiento').value; 
+      const errorMsg = document.getElementById('error-message');
+    
+      if (contrasena !== confirm) {
+        errorMsg.textContent = 'Las contraseñas no coinciden.';
+        return;
+      }
+    
+      // Llamar a tu backend
+      try {
+        const response = await fetch('http://localhost:3000/api/usuarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            dni,
+            nombre,
+            apellidos,
+            contrasena,
+            correo,
+            fecha_nacimiento,
+            telefono
+          })
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+          alert('Usuario creado con éxito');
+          window.location.href = "login.html";
+        } else {
+          errorMsg.textContent = data.error || "Error desconocido al registrar usuario.";
+        }
+      } catch (error) {
+        errorMsg.textContent = "Error al conectar con el servidor.";
+        console.error(error);
+      }
+    });
+  </script>
+  
+  <script>
+    async function createUsuario(dni, nombre, apellidos, contrasena, correo, fecha_nacimiento, telefono) {
+      try {
+        await db.collection("usuarios").add({
+          dni,
+          nombre,
+          apellidos,
+          contrasena,
+          correo,
+          fecha_nacimiento,
+          telefono
+        });
+        alert("¡Usuario creado con éxito!");
+      } catch (error) {
+        console.error("Error creando usuario:", error);
+        alert("Hubo un problema creando el usuario.");
+      }
+    }
+  </script>
+</body>
+</html>

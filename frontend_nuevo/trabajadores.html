@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="CodePixar">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>Trabajadores - InstaRent</title>
+  <!--
+    CSS
+    =============================================
+  -->
+  <link rel="stylesheet" href="css/linearicons.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Tu JavaScript (para el modal, etc.) si lo necesitas -->
+  <!-- <script src="js/trabajadores.js" defer></script> -->
+</head>
+<body>
+  <!-- Start Header Area -->
+  <header class="header_area sticky-header">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light main_box">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="index.html">
+            <img src="img/logo.png" alt="" style="height: 120px;">
+          </a>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item active"><a class="nav-link" href="trabajadores.html">Trabajadores</a></li>
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-haspopup="true" aria-expanded="false">Crear</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="crear_alquiler.html">Crear Alquiler</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="crear_trabajo.html">Crear Trabajo</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="resenyas.html">Reseñas</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- End Header Area -->
+
+  <!-- Start Banner Area -->
+  <section class="banner-area organic-breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>Trabajadores</h1>
+          <h2 class="text-white">Profesionales de confianza</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Area -->
+
+  <div class="container">
+    <div class="row">
+      <!-- Barra lateral para los filtros -->
+      <div class="col-xl-3 col-lg-4 col-md-5">
+        <div class="sidebar-filter mt-50">
+          <div class="top-filter-head">Filtros de Trabajadores</div>
+
+          <!-- Filtro Categoría -->
+          <div class="common-filter mt-4">
+            <div class="head">Categoría</div>
+            <form action="#">
+              <select id="categoria" class="nice-select w-100 mt-2">
+                <option value="">Todas</option>
+                <option value="limpieza">Limpieza</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="seguridad">Seguridad</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Filtro Experiencia (años) -->
+          <div class="common-filter mt-4">
+            <div class="head">Experiencia (años)</div>
+            <div class="mt-2">
+              <input type="range" id="experiencia" name="experiencia" min="0" max="20" value="5" class="w-100">
+              <!-- Podrías añadir un output dinámico si deseas mostrar el valor actual -->
+            </div>
+          </div>
+
+          <!-- Filtro Valoración Mínima -->
+          <div class="common-filter mt-4">
+            <div class="head">Valoración mínima</div>
+            <form action="#">
+              <select id="valoracion" class="nice-select w-100 mt-2">
+                <option value="">Cualquiera</option>
+                <option value="1">1 estrella</option>
+                <option value="2">2 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Botones Filtrar / Quitar Filtros -->
+          <div class="filter-actions">
+			<button class="primary-btn filter-btn">Filtrar</button>
+			<button class="primary-btn filter-btn" style="background: #ccc; color: #333;">Quitar Filtros</button>
+		  </div>
+        </div>
+      </div>
+
+    <!-- Listado de trabajadores -->
+    <div class="col-xl-9 col-lg-8 col-md-7">
+      <section class="lattest-product-area pb-40 category-list">
+        <div class="row">
+          
+          <!-- trabajador 1 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador1.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_2.jpg" alt="Trabajador 1" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>Juan López</h6>
+                <p class="mb-1">Seguridad</p>
+                <p>4.5 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('Juan López'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+          <!-- trabajador 2 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador2.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_1.jpg" alt="Trabajador 2" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>Miguel García</h6>
+                <p class="mb-1">Mantenimiento</p>
+                <p>4.0 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('Miguel García'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+          <!-- trabajador 3 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador3.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_3.jpg" alt="Trabajador 3" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>Carlos Pérez</h6>
+                <p class="mb-1">Seguridad</p>
+                <p>4.8 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('Carlos Pérez'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+          <!-- trabajador 4 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador4.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_4.jpg" alt="Trabajador 4" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>Abde Ahmed</h6>
+                <p class="mb-1">Limpieza</p>
+                <p>4.2 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('Abde Ahmed'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+          <!-- trabajador 5 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador5.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_5.jpg" alt="Trabajador 5" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>Aila Mullet</h6>
+                <p class="mb-1">Mantenimiento</p>
+                <p>3.9 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('Aila Mullet'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+          <!-- trabajador 6 -->
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="single-product p-3 border rounded">
+              <a href="trabajador6.html" style="text-decoration: none; color: inherit;">
+                <img src="img/trabajadores/trabajador_6.jpg" alt="Trabajador 6" class="img-fluid mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                <h6>David Maeso</h6>
+                <p class="mb-1">Limpieza</p>
+                <p>4.6 ★</p>
+              </a>
+              <button class="primary-btn mt-2" onclick="abrirModal('David Maeso'); event.stopPropagation();">
+                Chat / Contratar
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+
+        <!-- Paginación (opcional) -->
+        <div class="center" style="display: flex; justify-content: center;">
+          <div class="pagination">
+            <a href="#" class="prev-arrow">
+              <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#" class="dot-dot">
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </a>
+            <a href="#">6</a>
+            <a href="#" class="next-arrow">
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Chat con el trabajador -->
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content" style="padding: 20px; position: relative;">
+      <!-- Botón para cerrar el modal -->
+      <span class="close" id="closeModal" style="position:absolute; top:10px; right:15px; cursor:pointer;">
+        &times;
+      </span>
+
+      <!-- Título dinámico con el nombre del trabajador -->
+      <h2 id="modalTitle">Chat con el trabajador</h2>
+
+      <!-- Simulación de chat -->
+      <div class="chat-box" style="border:1px solid #ccc; margin-top:15px; padding:10px; max-height: 200px; overflow:auto;">
+        <div class="chat-bubble user" style="margin-bottom:10px; background:#f2f2f2; padding:5px 10px; border-radius:5px;">
+          Hola, estoy interesado en tus servicios
+        </div>
+        <div class="chat-bubble worker" style="margin-bottom:10px; background:#d9edf7; padding:5px 10px; border-radius:5px;">
+          Hola, claro. ¿Qué necesitas exactamente?
+        </div>
+        <!-- Más mensajes ficticios... -->
+      </div>
+
+      <!-- Número de teléfono borroso -->
+      <div class="phone-info mt-3">
+        <p>Número de teléfono:
+          <span class="blurred" id="phoneNumber" style="filter: blur(4px);">666 123 456</span>
+        </p>
+      </div>
+
+      <!-- Botón Contratar -->
+      <button id="contratarBtn" class="primary-btn mt-2">
+        Contratar
+      </button>
+    </div>
+  </div>
+
+  <!-- start footer Area -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>
+                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
+                ¡Bienvenido a la manera más fácil de alquilar!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Seamos sociales</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-dribbble"></i></a>
+              <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Tu texto base existente -->
+          <span>© 2025 InstaRent</span> |
+          <a href="condiciones_uso.html">Condiciones de Uso</a> |
+          <a href="politica_privacidad.html">Política de Privacidad</a> |
+          <a href="politica_cookies.html">Política de Cookies</a> |
+          <a href="politica_copyright.html">Política de Copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End footer Area -->
+
+  <!-- Scripts (igual que en index.html) -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!--gmaps Js-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="js/gmaps.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Script para manejar el modal de chat con el trabajador -->
+  <script>
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+    const modalTitle = document.getElementById("modalTitle");
+
+    function abrirModal(nombreTrabajador) {
+      modalTitle.textContent = "Chat con " + nombreTrabajador;
+      modal.style.display = "block";
+    }
+
+    closeModal.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

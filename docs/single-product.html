@@ -219,24 +219,25 @@
           <!-- ===== Reseñas ===== -->
           <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
             <h4 class="mb-4">Reseñas</h4>
-            <div class="media mb-4">
-              <img src="img/product/review-1.png" class="mr-3 rounded-circle" alt width="60" />
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Juan Carlos Ponce de León <small class="text-muted">— Hace 2 semanas</small></h5>
-                <span class="text-warning">★★★★★</span>
-                <p>Excelente piso, muy luminoso y bien ubicado. El propietario fue muy atento durante todo el proceso.</p>
-              </div>
-            </div>
-            <div class="media mb-4">
-              <img src="img/product/review-2.png" class="mr-3 rounded-circle" alt width="60" />
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Carlos López <small class="text-muted">— Hace 1 mes</small></h5>
-                <span class="text-warning">★★★★★</span>
-                <p>Viví aquí durante un año y fue una experiencia maravillosa. La terraza es perfecta para desayunar los fines de semana.</p>
-              </div>
-            </div>
+            <!-- Contenedor dinámico para las reseñas -->
+            <div id="reviewContainer"></div>
+
             <!-- Formulario reseña simple -->
-            <form class="mt-4">
+            <form id="reviewForm" class="mt-4">
+              <div id="error-message" class="alert alert-danger d-none" role="alert">
+                No has alquilado esta vivienda, por lo que no puedes dejar una reseña.
+              </div>
+              <div class="form-group">
+                <label for="reviewStars">Tu valoración</label>
+                <div id="reviewStars" class="star-rating">
+                  <i class="fa fa-star" data-value="1"></i>
+                  <i class="fa fa-star" data-value="2"></i>
+                  <i class="fa fa-star" data-value="3"></i>
+                  <i class="fa fa-star" data-value="4"></i>
+                  <i class="fa fa-star" data-value="5"></i>
+                </div>
+                <input type="hidden" id="ratingValue" value="0">
+              </div>
               <div class="form-group">
                 <label for="reviewTextarea">Tu reseña</label>
                 <textarea class="form-control" id="reviewTextarea" rows="3" placeholder="Comparte tu experiencia..."></textarea>
@@ -378,6 +379,176 @@
       });
     });
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const reviewContainer = document.getElementById("reviews");
+    const reviewForm = document.getElementById("reviewForm");
+    const errorMessage = document.getElementById("error-message");
+    const ratingValue = document.getElementById("ratingValue");
+    const reviewTextarea = document.getElementById("reviewTextarea");
+    const reviewStars = document.querySelectorAll("#reviewStars .fa-star");
+
+    // Obtener el ID de la vivienda desde la URL
+    const params = new URLSearchParams(window.location.search);
+    const idVivienda = params.get("id");
+
+    // Obtener el DNI del usuario desde localStorage
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const dniUsuario = usuario ? usuario.dni : null;
+
+    // Variable para almacenar el DNI del casero
+    let dniCasero = null;
+
+    // Función para obtener el DNI del casero asociado a la vivienda
+    const obtenerDniCasero = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/caseros/vivienda/${idVivienda}`);
+        const data = await response.json();
+        if (response.ok) {
+          dniCasero = data.dniCasero;
+        } else {
+          console.error("No se encontró el casero:", data.error || "Error desconocido.");
+        }
+      } catch (error) {
+        console.error("Error al obtener el DNI del casero:", error);
+      }
+    };
+
+    // Función para obtener el nombre completo del usuario por DNI
+    const obtenerNombreUsuario = async (dni) => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/usuarios/${dni}`);
+        const data = await response.json();
+        if (response.ok) {
+          return `${data.nombre} ${data.apellidos}`; // Combinar nombre y apellidos
+        } else {
+          return "Usuario desconocido";
+        }
+      } catch (error) {
+        console.error("Error al obtener el nombre del usuario:", error);
+        return "Usuario desconocido";
+      }
+    };
+
+    // Función para mostrar las valoraciones en la sección de reseñas
+    const mostrarValoraciones = async (valoraciones) => {
+      const valoracionesHTML = await Promise.all(
+        valoraciones.map(async (valoracion) => {
+          const nombreValorador = await obtenerNombreUsuario(valoracion.dni_valorador);
+          return `
+            <div class="media mb-4">
+              <img src="img/product/review-placeholder.png" class="mr-3 rounded-circle" alt="Usuario" width="60" />
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">${nombreValorador} <small class="text-muted">— Hace poco</small></h5>
+                <span class="text-warning">${'★'.repeat(valoracion.valoracion)}${'☆'.repeat(5 - valoracion.valoracion)}</span>
+                <p>${valoracion.descripcion}</p>
+              </div>
+            </div>
+          `;
+        })
+      );
+
+      reviewContainer.insertAdjacentHTML("afterbegin", valoracionesHTML.join(""));
+    };
+
+    // Función para obtener las valoraciones del casero
+    const obtenerValoracionesCasero = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/valoraciones/casero/${dniCasero}`);
+        const data = await response.json();
+        if (response.ok) {
+          mostrarValoraciones(data.valoraciones);
+        } else {
+          console.error("No se encontraron valoraciones:", data.message || "Error desconocido.");
+        }
+      } catch (error) {
+        console.error("Error al obtener las valoraciones del casero:", error);
+      }
+    };
+
+    // Llamar a la función para obtener el DNI del casero
+    await obtenerDniCasero();
+
+    // Llamar a la función para obtener las valoraciones del casero
+    if (dniCasero) {
+      await obtenerValoracionesCasero();
+    }
+
+    // Manejar la selección de estrellas
+    reviewStars.forEach((star) => {
+      star.addEventListener("click", () => {
+        const value = star.getAttribute("data-value");
+        ratingValue.value = value;
+
+        // Resaltar las estrellas seleccionadas
+        reviewStars.forEach((s) => {
+          s.classList.toggle("text-warning", s.getAttribute("data-value") <= value);
+          s.classList.toggle("text-muted", s.getAttribute("data-value") > value);
+        });
+      });
+    });
+
+    // Verificar si el usuario ha alquilado la vivienda
+    const verificarInquilino = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/inquilinos?vivienda=${idVivienda}&dni=${dniUsuario}`);
+        const data = await response.json();
+        return data.esInquilino;
+      } catch (error) {
+        console.error("Error al verificar si el usuario ha alquilado la vivienda:", error);
+        return false;
+      }
+    };
+
+    // Manejar el envío del formulario
+    reviewForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Verificar si el usuario ha alquilado la vivienda
+      const esInquilino = await verificarInquilino();
+      if (!esInquilino) {
+        errorMessage.classList.remove("d-none");
+        return;
+      }
+
+      // Enviar la reseña al servidor
+      const valoracion = ratingValue.value;
+      const descripcion = reviewTextarea.value;
+
+      try {
+        const response = await fetch("http://localhost:3000/api/valoraciones", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            dni_casero: dniCasero, // Usar el DNI del casero obtenido
+            dni_valorador: dniUsuario,
+            valoracion,
+            descripcion,
+          }),
+        });
+
+        if (response.ok) {
+          alert("Reseña enviada con éxito.");
+          reviewForm.reset();
+          ratingValue.value = 0;
+          reviewStars.forEach((s) => s.classList.remove("text-warning", "text-muted"));
+          await obtenerValoracionesCasero(); // Actualizar las valoraciones después de enviar
+        } else {
+          alert("Error al enviar la reseña.");
+        }
+      } catch (error) {
+        console.error("Error al enviar la reseña:", error);
+        alert("Error al enviar la reseña.");
+      }
+    });
+  });
+</script>
+
+  <div id="header-placeholder"></div> 
   <script src="../scripts/header_loader.js"></script>
 
 </body>
+</html>

@@ -1,10 +1,10 @@
 // server.js
 import express from 'express';
 import cors from 'cors';
-import { createUsuario, readUsuarioPorCorreo } from './usuario.js'; // Importar funciones necesarias
+import { createUsuario, readUsuarioPorCorreo, readUsuario } from './usuario.js'; // Importar funciones necesarias
 import { readVivienda, createVivienda } from './vivienda.js'; // Importar las funciones necesarias
 import { readAllViviendas } from './filters.js'; // Importar la función necesaria
-import { createValoracionCasero } from './valoracion_casero.js'; // Importar la función necesaria
+import { createValoracionCasero, readValoracionCasero } from './valoracion_casero.js'; // Importar las funciones necesarias
 import { collection, query, where, getDocs } from 'firebase/firestore'; // Importar funciones necesarias de Firebase
 import { verificarInquilino } from './inquilino.js'; // Importar la función necesaria
 import { buscarDniCaseroPorVivienda } from './casero.js'; // Importar la función desde casero.js
@@ -192,6 +192,35 @@ app.get('/api/caseros/vivienda/:idVivienda', async (req, res) => {
   }
 });
 
+// Ruta para obtener las valoraciones de un casero por su DNI
+app.get('/api/valoraciones/casero/:dniCasero', async (req, res) => {
+  try {
+    const { dniCasero } = req.params;
+
+    if (!dniCasero) {
+      return res.status(400).json({ error: "El DNI del casero es obligatorio." });
+    }
+
+    const valoraciones = await readValoracionCasero(dniCasero);
+
+    // Obtener los nombres de los usuarios a partir de sus DNIs
+    const usuarios = await Promise.all(
+      valoraciones.map(async (valoracion) => {
+        const usuario = await readUsuario(valoracion.dni_valorador); // Función para obtener usuario por DNI
+        return {
+          ...valoracion,
+          nombre_valorador: usuario ? usuario.nombre : "Usuario desconocido",
+        };
+      })
+    );
+
+    res.status(200).json({ valoraciones: usuarios });
+  } catch (error) {
+    console.error("Error al obtener las valoraciones del casero:", error);
+    res.status(500).json({ error: "Error interno del servidor." });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
@@ -290,5 +319,34 @@ app.post('/api/trabajos', async (req, res) => {
   } catch (error) {
     console.error("Error al crear trabajo:", error);
     res.status(500).json({ error: "Error al crear el trabajo." });
+  }
+});
+
+// Ruta para obtener un usuario por su DNI
+app.get('/api/usuarios/:dni', async (req, res) => {
+  try {
+    const { dni } = req.params;
+
+    if (!dni) {
+      return res.status(400).json({ error: "El DNI es obligatorio." });
+    }
+
+    // Llamar a la función para obtener el usuario por DNI
+    const usuario = await readUsuario(dni);
+
+    if (!usuario) {
+      return res.status(404).json({ error: "No se encontró un usuario con el DNI proporcionado." });
+    }
+
+    res.status(200).json({
+      dni: usuario.dni,
+      nombre: usuario.nombre,
+      apellidos: usuario.apellidos, // Asegúrate de incluir los apellidos
+      correo: usuario.correo,
+      telefono: usuario.telefono,
+    });
+  } catch (error) {
+    console.error("Error al obtener el usuario por DNI:", error);
+    res.status(500).json({ error: "Error interno del servidor." });
   }
 });

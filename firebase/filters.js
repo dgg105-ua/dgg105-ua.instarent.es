@@ -27,29 +27,51 @@ export async function readAllUsuarios(filtro=null){
 }
 
 export async function readAllViviendas(tipo = null, filtros = {}) {
-    try {
-        const ref = collection(db, "vivienda");
-        const viviendasSnapshot = await getDocs(ref);
-        const viviendas = viviendasSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  try {
+    const refViviendas = collection(db, "vivienda");
+    const viviendasSnapshot = await getDocs(refViviendas);
+    const viviendas = viviendasSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        // Log the received filters to the console
-        console.log("Filtros recibidos (filters):", { tipo, ...filtros });
+    // Obtener todos los caseros
+    const refCaseros = collection(db, "casero");
+    const caserosSnapshot = await getDocs(refCaseros);
+    const caseros = caserosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        // Apply filters locally
-        const filteredViviendas = viviendas.filter(vivienda => {
-            if (filtros.precioMin && vivienda.precio < parseInt(filtros.precioMin, 10)) return false;
-            if (filtros.precioMax && vivienda.precio > parseInt(filtros.precioMax, 10)) return false;
-            if (filtros.numHabitaciones && vivienda.numHabitaciones !== parseInt(filtros.numHabitaciones, 10)) return false;
-            if (filtros.numBanyos && vivienda.numBanyos !== parseInt(filtros.numBanyos, 10)) return false;
-            if (filtros.valoracion && vivienda.valoracion < parseInt(filtros.valoracion, 10)) return false;
-            return true;
-        });
+    // Obtener todos los usuarios (para valoracion_media)
+    const refUsuarios = collection(db, "usuario");
+    const usuariosSnapshot = await getDocs(refUsuarios);
+    const usuarios = usuariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        return filteredViviendas;
-    } catch (error) {
-        console.error("Error al leer viviendas con filtros:", error);
-        return [];
-    }
+    // Apply filters locally
+    const filteredViviendas = viviendas.filter(vivienda => {
+      // Filtros de precio, habitaciones, baños
+      if (filtros.precioMin && vivienda.precio < parseInt(filtros.precioMin, 10)) return false;
+      if (filtros.precioMax && vivienda.precio > parseInt(filtros.precioMax, 10)) return false;
+      if (filtros.numHabitaciones && vivienda.numHabitaciones !== parseInt(filtros.numHabitaciones, 10)) return false;
+      if (filtros.numBanyos && vivienda.numBanyos !== parseInt(filtros.numBanyos, 10)) return false;
+
+      // Filtro de valoracion_media
+      if (filtros.valoracion) {
+        const valoracion = parseInt(filtros.valoracion, 10);
+        const casero = caseros.find(c => String(c.Id_vivienda) === String(vivienda.id));
+        if (!casero) return false;
+
+        const usuario = usuarios.find(u => u.id === casero.DNI_Casero);
+        if (!usuario || usuario.valoracion_media < valoracion - 1 || usuario.valoracion_media >= valoracion) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+    console.log(`Se han encontrado ${filteredViviendas.length} viviendas.`);
+
+    return filteredViviendas;
+  } catch (error) {
+    console.error("Error al leer viviendas con filtros:", error);
+    return [];
+  }
 }
 
 export async function readAllTrabajadores(filtro = null) {

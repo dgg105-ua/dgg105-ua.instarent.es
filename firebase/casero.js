@@ -8,11 +8,12 @@ import {
   doc,
   deleteDoc,
   query,
-  where
+  where,
+  updateDoc
 } from "firebase/firestore";
 import { validarViviendaLibre } from "./utils.js";
 
-/** Crea la relación casero -> vivienda */
+/** Crea la relación casero -> vivienda con valoracion_media inicial */
 export async function createCasero(DNI_Casero, Id_vivienda) {
   try {
     if (!DNI_Casero || !Id_vivienda) {

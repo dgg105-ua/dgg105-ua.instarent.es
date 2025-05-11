@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Log in</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registrarse.html">Registrarse</a>
+              </li>
             `);
           }
         }

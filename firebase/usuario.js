@@ -223,3 +223,35 @@ export async function loginUsuario(correo, contrasena) {
     throw error; // Re-lanzar el error para manejarlo en otro lugar si es necesario
   }
 }
+
+/** Recalcula y actualiza la valoracion_media de un usuario */
+export async function recalcularValoracionMedia(DNI_Casero) {
+  try {
+    if (!DNI_Casero) {
+      console.log("Error: Falta el DNI del casero.");
+      return;
+    }
+
+    // Obtener todas las valoraciones del casero
+    const refValoraciones = collection(db, "valoracion_casero");
+    const q = query(refValoraciones, where("dni_casero", "==", DNI_Casero));
+    const snap = await getDocs(q);
+
+    if (snap.empty) {
+      console.log(`No se encontraron valoraciones para el casero ${DNI_Casero}.`);
+      return;
+    }
+
+    // Calcular la media
+    const valoraciones = snap.docs.map(doc => doc.data().valoracion);
+    const suma = valoraciones.reduce((acc, val) => acc + val, 0);
+    const media = suma / valoraciones.length;
+
+    // Actualizar la valoracion_media del usuario
+    const refUsuario = doc(db, "usuario", DNI_Casero);
+    await updateDoc(refUsuario, { valoracion_media: media });
+    console.log(`Valoracion_media del usuario ${DNI_Casero} actualizada a ${media}.`);
+  } catch (error) {
+    console.error("Error al recalcular valoracion_media del usuario:", error);
+  }
+}

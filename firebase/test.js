@@ -35,6 +35,12 @@ async function testCrearUsuarios() {
   await createUsuario("22222222I", "Inq4", "ApellidoI4", "Pass*Inq4", "inq4@example.com", "1993-01-01", "610000008");
   await createUsuario("11111111I", "Inq5", "ApellidoI5", "Pass*Inq5", "inq5@example.com", "1994-01-01", "610000009");
   await createUsuario("01010101I", "Inq6", "ApellidoI6", "Pass*Inq6", "inq6@example.com", "1995-01-01", "610000010");
+
+  console.log("\n--- CREANDO 4 NUEVOS INQUILINOS ---");
+  await createUsuario("12121212I", "Inq7", "ApellidoI7", "Pass*Inq7", "inq7@example.com", "1996-01-01", "610000011");
+  await createUsuario("13131313I", "Inq8", "ApellidoI8", "Pass*Inq8", "inq8@example.com", "1997-01-01", "610000012");
+  await createUsuario("14141414I", "Inq9", "ApellidoI9", "Pass*Inq9", "inq9@example.com", "1998-01-01", "610000013");
+  await createUsuario("15151515I", "Inq10", "ApellidoI10", "Pass*Inq10", "inq10@example.com", "1999-01-01", "610000014");
 }
 
 /**
@@ -165,6 +171,12 @@ async function testViviendasCaseros() {
   // Asignar vivienda 3 al casero 88888888C
   await createCasero("88888888C", 3);
 
+  // Asignar vivienda 4 al casero 99999999C
+  await createCasero("99999999C", 4);
+
+  // Asignar vivienda 5 al casero 88888888C
+  await createCasero("88888888C", 5);
+
   // Ejemplo fallido: asignar otra vez la vivienda 1 al mismo casero → ya existe
   console.log("\n--- PROBANDO DUPLICAR CASERO EN MISMA VIVIENDA (DEBE FALLAR) ---");
   await createCasero("88888888C", 1); // Esperamos: "Error: La vivienda 1 ya tiene un casero asignado"
@@ -211,6 +223,15 @@ async function testInquilinos() {
   // => Al crear uno nuevo hoy, debe fallar.
   console.log("\n--- INTENTANDO CREAR ALQUILER PARA 44444444I QUE YA ESTÁ ACTIVO (DEBE FALLAR) ---");
   await createInquilino("44444444I", 2, "2025-04-01", "2025-08-01", "Contrato duplicado en la misma época");
+
+  console.log("\n--- CREANDO CONTRATOS PARA NUEVOS INQUILINOS ---");
+  // Vivienda 1 => Casero = 99999999C
+  await createInquilino("12121212I", 1, "2025-07-01", "2025-12-31", "Contrato 12121212I con casa1");
+  await createInquilino("13131313I", 1, "2026-01-01", "2026-06-30", "Contrato 13131313I con casa1");
+
+  // Vivienda 3 => Casero = 88888888C
+  await createInquilino("14141414I", 3, "2025-08-01", "2025-12-31", "Contrato 14141414I con casa3");
+  await createInquilino("15151515I", 3, "2026-01-01", "2026-06-30", "Contrato 15151515I con casa3");
 }
 
 /**
@@ -267,6 +288,19 @@ async function testValoraciones() {
   // Caso fallido: un inquilino valorando a otro inquilino
   console.log("\n--- VALORACION FALLIDA (NO CASERO INTENTANDO VALORAR INQUILINO) ---");
   await createValoracionInquilino("33333333I", "55555555I", 3, "Inquilino valorando a otro inquilino: ERROR");
+
+  console.log("\n--- MÁS VALORACIONES A CASEROS ---");
+  // Más valoraciones para el casero 99999999C
+  await createValoracionCasero("99999999C", "33333333I", 4, "El casero fue muy atento.");
+  await createValoracionCasero("99999999C", "22222222I", 5, "Excelente trato y comunicación.");
+  await createValoracionCasero("99999999C", "12121212I", 3, "Tuve algunos problemas, pero los resolvió.");
+  await createValoracionCasero("99999999C", "13131313I", 4, "Buena experiencia en general.");
+
+  // Más valoraciones para el casero 88888888C
+  await createValoracionCasero("88888888C", "44444444I", 5, "Muy profesional y amable.");
+  await createValoracionCasero("88888888C", "55555555I", 4, "El casero fue puntual y responsable.");
+  await createValoracionCasero("88888888C", "14141414I", 3, "Hubo algunos inconvenientes, pero se solucionaron.");
+  await createValoracionCasero("88888888C", "15151515I", 5, "Excelente experiencia, muy recomendado.");
 }
 
 /**

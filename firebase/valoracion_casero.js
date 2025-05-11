@@ -12,6 +12,7 @@ import {
   where
 } from "firebase/firestore";
 import { validarInquilinoConFechas } from "./utils.js";
+import { recalcularValoracionMedia } from "./usuario.js";
 
 /**
  * Crea (o actualiza) la valoración que un INQUILINO (dni_valorador) 
@@ -51,6 +52,9 @@ export async function createValoracionCasero(dni_casero, dni_valorador, valoraci
         descripcion: descripcion || ""
       });
       console.log(`Valoración de casero actualizada para ${dni_valorador} → ${dni_casero}.`);
+
+      // Recalcular valoracion_media
+      await recalcularValoracionMedia(dni_casero);
       return;
     }
 
@@ -62,6 +66,9 @@ export async function createValoracionCasero(dni_casero, dni_valorador, valoraci
       descripcion: descripcion || ""
     });
     console.log("Valoración de casero creada con ID:", newDocRef.id);
+
+    // Recalcular valoracion_media
+    await recalcularValoracionMedia(dni_casero);
 
   } catch (error) {
     console.error("Error al crear/actualizar valoración casero:", error);

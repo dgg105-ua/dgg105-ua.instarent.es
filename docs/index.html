@@ -217,7 +217,7 @@
       contenedor.innerHTML = '<div class="col-12 text-center"><p>Cargando viviendas...</p></div>';
 
       try {
-        let url = 'http://instarent-backend.onrender.com/api/viviendas';
+        let url = 'https://instarent-backend.onrender.com/api/viviendas';
         if (Object.keys(filtros).length > 0) {
           const params = new URLSearchParams();
           for (const [key, value] of Object.entries(filtros)) {

@@ -403,7 +403,7 @@
     // Función para obtener el DNI del casero asociado a la vivienda
     const obtenerDniCasero = async () => {
       try {
-        const response = await fetch(`http://instarent-backend.onrender.com/api/caseros/vivienda/${idVivienda}`);
+        const response = await fetch(`s-backend.onrender.com/api/caseros/vivienda/${idVivienda}`);
         const data = await response.json();
         if (response.ok) {
           dniCasero = data.dniCasero;
@@ -418,7 +418,7 @@
     // Función para obtener el nombre completo del usuario por DNI
     const obtenerNombreUsuario = async (dni) => {
       try {
-        const response = await fetch(`http://instarent-backend.onrender.com/api/usuarios/${dni}`);
+        const response = await fetch(`https://instarent-backend.onrender.com/api/usuarios/${dni}`);
         const data = await response.json();
         if (response.ok) {
           return `${data.nombre} ${data.apellidos}`; // Combinar nombre y apellidos
@@ -455,7 +455,7 @@
     // Función para obtener las valoraciones del casero
     const obtenerValoracionesCasero = async () => {
       try {
-        const response = await fetch(`http://instarent-backend.onrender.com/api/valoraciones/casero/${dniCasero}`);
+        const response = await fetch(`s-backend.onrender.com/api/valoraciones/casero/${dniCasero}`);
         const data = await response.json();
         if (response.ok) {
           mostrarValoraciones(data.valoraciones);
@@ -492,7 +492,7 @@
     // Verificar si el usuario ha alquilado la vivienda
     const verificarInquilino = async () => {
       try {
-        const response = await fetch(`http://instarent-backend.onrender.com/api/inquilinos?vivienda=${idVivienda}&dni=${dniUsuario}`);
+        const response = await fetch(`s-backend.onrender.com/api/inquilinos?vivienda=${idVivienda}&dni=${dniUsuario}`);
         const data = await response.json();
         return data.esInquilino;
       } catch (error) {
@@ -517,7 +517,7 @@
       const descripcion = reviewTextarea.value;
 
       try {
-        const response = await fetch("http://instarent-backend.onrender.com/api/valoraciones", {
+        const response = await fetch("s-backend.onrender.com/api/valoraciones", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

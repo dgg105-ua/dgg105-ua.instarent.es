@@ -203,7 +203,7 @@
       const precio = parseInt(document.getElementById("precio").value, 10);
 
       try {
-        const response = await fetch("http://localhost:3000/api/trabajadores", {
+        const response = await fetch("http://instarent-backend.onrender.com/api/trabajadores", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ dni_trabajador, id_trabajo, precio })
@@ -227,7 +227,7 @@
 document.addEventListener("DOMContentLoaded", async function() {
   const select = document.getElementById("id_trabajo");
   try {
-    const response = await fetch("http://localhost:3000/api/trabajos");
+    const response = await fetch("http://instarent-backend.onrender.com/api/trabajos");
     const data = await response.json();
     if (response.ok && data.trabajos) {
       data.trabajos.forEach(trabajo => {
@@ -283,7 +283,7 @@ document.getElementById("btn-guardar-nuevo-trabajo").addEventListener("click", a
     return;
   }
   try {
-    const response = await fetch("http://localhost:3000/api/trabajos", {
+    const response = await fetch("http://instarent-backend.onrender.com/api/trabajos", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tipo, descripcion })

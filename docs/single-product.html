@@ -403,7 +403,7 @@
     // Función para obtener el DNI del casero asociado a la vivienda
     const obtenerDniCasero = async () => {
       try {
-        const response = await fetch(`s-backend.onrender.com/api/caseros/vivienda/${idVivienda}`);
+        const response = await fetch(`https://instarent-backend.onrender.com/api/caseros/vivienda/${idVivienda}`);
         const data = await response.json();
         if (response.ok) {
           dniCasero = data.dniCasero;
@@ -517,7 +517,7 @@
       const descripcion = reviewTextarea.value;
 
       try {
-        const response = await fetch(`https://instarent-backend.onrender.com/api/valoraciones`, {
+        const response = await fetch("https://instarent-backend.onrender.com/api/valoraciones", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

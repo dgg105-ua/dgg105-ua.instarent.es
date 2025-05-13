@@ -237,14 +237,18 @@
           if (data.viviendas && data.viviendas.length > 0) {
             data.viviendas.forEach((vivienda) => {
               const imagen = vivienda.imagen && vivienda.imagen.trim() !== "" 
-                ? vivienda.imagen.replace("../frontend_nuevo/", "") 
+                ? vivienda.imagen.replace("../docs/", "") 
                 : "img/default.jpg";
 
               const viviendaHTML = `
                 <div class="col-12 mb-3">
                   <a href="single-product.html?id=${vivienda.id}" style="text-decoration: none; color: inherit;">
                     <div class="single-product d-flex align-items-center p-3 border rounded">
-                      <img src="${imagen}" alt="Imagen de la vivienda" style="width: 150px; height: 120px; object-fit: cover;" class="img-fluid rounded mr-3">
+                      <img src="${imagen}" alt="Imagen de la vivienda" 
+                        style="width: 150px; height: 120px; object-fit: cover;" 
+                        class="img-fluid rounded mr-3"
+                        onerror="this.onerror=null; this.src='img/default.jpg';">
+
                       <div class="product-details ms-4">
                         <h6>${vivienda.descripcion || 'Sin título'}</h6>
                         <p class="mb-2">

@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { createUsuario, readUsuarioPorCorreo, readUsuario } from './usuario.js'; // Importar funciones necesarias
 import { readVivienda, createVivienda } from './vivienda.js'; // Importar las funciones necesarias
-import { readAllViviendas } from './filters.js'; // Importar la función necesaria
+import { readAllViviendas, getJobCategories, readAllTrabajadores } from './filters.js'; // Importar la función necesaria
 import { createValoracionCasero, readValoracionCasero } from './valoracion_casero.js'; // Importar las funciones necesarias
 import { collection, query, where, getDocs } from 'firebase/firestore'; // Importar funciones necesarias de Firebase
 import { verificarInquilino } from './inquilino.js'; // Importar la función necesaria
@@ -290,15 +290,8 @@ app.get('/api/trabajos', async (req, res) => {
   try {
     const trabajosRef = collection(db, "trabajos");
     const snapshot = await getDocs(trabajosRef);
-    const trabajos = snapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        id: data.id, // Usar el campo id numérico
-        descripcion: data.descripcion || "",
-        tipo: data.tipo || "",
-      };
-    });
-    res.status(200).json({ trabajos });
+    const trabajos = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    res.status(200).json(trabajos);
   } catch (error) {
     console.error("Error al obtener trabajos:", error);
     res.status(500).json({ error: "Error al obtener los trabajos." });
@@ -348,5 +341,43 @@ app.get('/api/usuarios/:dni', async (req, res) => {
   } catch (error) {
     console.error("Error al obtener el usuario por DNI:", error);
     res.status(500).json({ error: "Error interno del servidor." });
+  }
+});
+
+
+// Ruta para obtener todos los trabajadores
+app.get('/api/trabajadores', async (req, res) => {
+  try {
+    const { categoria } = req.query; // Obtener la categoría del query parameter
+    const trabajadores = await readAllTrabajadores(categoria); // Pasar la categoría a la función
+    
+    res.status(200).json(trabajadores);
+  } catch (error) {
+    console.error("Error al obtener trabajadores:", error);
+    res.status(500).json({ error: "Error al obtener los trabajadores." });
+  }
+});
+
+// Ruta para obtener todos los usuarios
+app.get('/api/usuarios', async (req, res) => {
+  try {
+    const usuariosRef = collection(db, "usuario");
+    const snapshot = await getDocs(usuariosRef);
+    const usuarios = snapshot.docs.map(doc => ({ dni: doc.id, ...doc.data() })); // Include DNI as part of the response
+    res.status(200).json(usuarios);
+  } catch (error) {
+    console.error("Error al obtener usuarios:", error);
+    res.status(500).json({ error: "Error al obtener los usuarios." });
+  }
+});
+
+// Ruta para obtener categorías de trabajos
+app.get('/api/categorias', async (req, res) => {
+  try {
+    const categorias = await getJobCategories();
+    res.status(200).json(categorias);
+  } catch (error) {
+    console.error("Error al obtener categorías:", error);
+    res.status(500).json({ error: "Error al obtener categorías." });
   }
 });

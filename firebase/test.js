@@ -25,8 +25,12 @@ async function testCrearUsuarios() {
   await createUsuario("88888888C", "Casero2", "ApellidoC2", "Pass*Caser2", "cas2@example.com", "1975-01-01", "610000002");
 
   console.log("\n--- CREANDO 2 TRABAJADORES ---");
-  await createUsuario("77777777T", "Trabajador1", "ApellidoT1", "Pass*Trab1", "trab1@example.com", "1980-01-01", "610000003");
-  await createUsuario("66666666T", "Trabajador2", "ApellidoT2", "Pass*Trab2", "trab2@example.com", "1985-01-01", "610000004");
+  await createUsuario("11111111T", "Juan", "López", "Pass*Trab1", "juan.lopez@example.com", "1985-01-01", "610000021");
+  await createUsuario("22222222T", "Miguel", "García", "Pass*Trab2", "miguel.garcia@example.com", "1980-02-01", "610000022");
+  await createUsuario("33333333T", "Carlos", "Pérez", "Pass*Trab3", "carlos.perez@example.com", "1990-03-01", "610000023");
+  await createUsuario("44444444T", "Abde", "Ahmed", "Pass*Trab4", "abde.ahmed@example.com", "1995-04-01", "610000024");
+  await createUsuario("55555555T", "Aila", "Mullet", "Pass*Trab5", "aila.mullet@example.com", "1992-05-01", "610000025");
+  await createUsuario("66666666T", "Javier", "Fernández", "Pass*Trab6", "javier.fernandez@example.com", "1993-06-01", "610000026");
 
   console.log("\n--- CREANDO 6 INQUILINOS ---");
   await createUsuario("55555555I", "Inq1", "ApellidoI1", "Pass*Inq1", "inq1@example.com", "1990-01-01", "610000005");
@@ -237,26 +241,27 @@ async function testInquilinos() {
 /**
  * 4. Crear trabajos y asignarlos a trabajadores
  *   - Evitar duplicados por (nombre,tipo) si deseas
- *   - Asignar 77777777T, 66666666T
  */
 async function testTrabajosYTrabajadores() {
   console.log("\n--- CREANDO TRABAJOS ---");
   await createTrabajo("Fontanería", "Reparaciones de tuberías");
   await createTrabajo("Electricidad", "Instalaciones eléctricas");
+  await createTrabajo("Pintura", "Pintura de paredes y techos");
   // Intento duplicar
   console.log("\n--- INTENTANDO DUPLICAR TRABAJO (OPCIONAL, SOLO SI LO IMPLEMENTAS) ---");
   await createTrabajo("Fontanería", "Otra descripción, pero mismo nombre/tipo.");
 
   console.log("\n--- ASIGNANDO TRABAJADORES A TRABAJOS ---");
-  // Asigna a "Trabajador1" (77777777T) al trabajo ID=1 (Fontanería, si es la primera)
-  await createTrabajador("77777777T", 1, 100);
-
-  // Asigna a "Trabajador2" (66666666T) al trabajo ID=2 (Electricidad)
-  await createTrabajador("66666666T", 2, 150);
+  await createTrabajador("11111111T", 1, 15); // Juan López, Seguridad
+  await createTrabajador("22222222T", 2, 20); // Miguel García, Mantenimiento
+  await createTrabajador("33333333T", 1, 18); // Carlos Pérez, Seguridad
+  await createTrabajador("44444444T", 3, 12); // Abde Ahmed, Limpieza
+  await createTrabajador("55555555T", 2, 22); // Aila Mullet, Mantenimiento
+  await createTrabajador("66666666T", 3, 25); // Javier Fernández, Limpieza
 
   // Ver trabajos de un trabajador
-  const trabajosDeT1 = await trabajosPorTrabajador("77777777T");
-  console.log("Trabajos asignados a 77777777T:", trabajosDeT1);
+  const trabajosDeT1 = await trabajosPorTrabajador("66666666T");
+  console.log("Trabajos asignados a 66666666T:", trabajosDeT1);
 }
 
 /**
@@ -310,8 +315,8 @@ async function testValoraciones() {
  *    - Borramos una y confirmamos que ya no existe.
  */
 async function testContrataciones() {
-  // 1) Crear primera contratación (ID=1), ej: inquilino "55555555I" contrata a trabajador "77777777T"
-  await createContrata("55555555I", "77777777T");
+  // 1) Crear primera contratación (ID=1), ej: inquilino "55555555I" contrata a trabajador "11111111T"
+  await createContrata("55555555I", "11111111T");
   // Leer para verificar
   let c1 = await readContrata(1);
   console.log("Contratación con ID=1:", c1);
@@ -339,7 +344,6 @@ async function testReadTrabajadores(tipo=null) {
   const trabajadores = await readAllTrabajadores(tipo);
   console.log("Trabajadores:", trabajadores);
 }
-
 /**
  * MAIN: Ejecuta todo en orden
  */

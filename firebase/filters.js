@@ -74,25 +74,68 @@ export async function readAllViviendas(tipo = null, filtros = {}) {
   }
 }
 
-export async function readAllTrabajadores(filtro = null) {
-    if (!filtro) {
-      console.log("Error: Falta el filtro.");
-      return null;
+export async function readAllTrabajadores(categoria = null) {
+  try {
+    const trabajadoresSnapshot = await getDocs(collection(db, "trabajador"));
+    const trabajadores = trabajadoresSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // Obtener todos los trabajos
+    const trabajosSnapshot = await getDocs(collection(db, "trabajos"));
+    const trabajos = trabajosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // Obtener todos los usuarios
+    const usuariosSnapshot = await getDocs(collection(db, "usuario"));
+    const usuarios = usuariosSnapshot.docs.map(doc => ({ dni: doc.id, ...doc.data() }));
+
+    if (!categoria) {
+      // Añadir datos de trabajo y usuario a cada trabajador
+      return trabajadores.map(trabajador => {
+        const trabajo = trabajos.find(t => t.id === trabajador.id_trabajo);
+        const usuario = usuarios.find(u => u.dni === trabajador.dni_trabajador);
+        return {
+          ...trabajador,
+          tipo: trabajo ? trabajo.tipo : "Sin categoría",
+          nombre: usuario ? `${usuario.nombre} ${usuario.apellidos}` : "Nombre desconocido"
+        };
+      });
     }
-  
-    // Buscar el trabajo con el filtro
-    const trabajoSnapshot = await getDocs(query(collection(db, "trabajos"), where("tipo", "==", filtro)));
-  
-    if (trabajoSnapshot.empty) {
-      console.log("Error: No se encontró un trabajo con ese tipo.");
-      return null;
-    }
-  
-    // Extraer el ID del primer documento encontrado
-    const id = parseInt(trabajoSnapshot.docs[0].id);
-  
-    // Buscar trabajadores que tengan ese trabajo
-    const trabajadoresSnapshot = await getDocs(query(collection(db, "trabajador"), where("id_trabajo", "==", id)));
-  
-    return trabajadoresSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    
+    // Filtrar trabajos por categoría
+    const trabajosFiltrados = trabajos.filter(trabajo => trabajo.tipo === categoria);
+    const trabajosIds = trabajosFiltrados.map(trabajo => trabajo.id);
+
+    // Filtrar trabajadores por id_trabajo y añadir datos de trabajo y usuario
+    const trabajadoresFiltrados = trabajadores
+      .filter(trabajador => trabajosIds.includes(trabajador.id_trabajo))
+      .map(trabajador => {
+        const trabajo = trabajos.find(t => t.id === trabajador.id_trabajo);
+        const usuario = usuarios.find(u => u.dni === trabajador.dni_trabajador);
+        return {
+          ...trabajador,
+          tipo: trabajo ? trabajo.tipo : "Sin categoría",
+          nombre: usuario ? `${usuario.nombre} ${usuario.apellidos}` : "Nombre desconocido"
+        };
+      });
+
+    console.log(`Trabajadores filtrados para la categoría "${categoria}":`, trabajadoresFiltrados);
+    return trabajadoresFiltrados;
+  } catch (error) {
+    console.error("Error al leer trabajadores:", error);
+    return [];
+  }
+}
+
+export async function getJobCategories() {
+  try {
+    const trabajosSnapshot = await getDocs(collection(db, "trabajos"));
+    const categorias = new Set();
+    trabajosSnapshot.forEach(doc => {
+      categorias.add(doc.data().tipo);
+    });
+    console.log("Categorías de trabajos encontradas:", Array.from(categorias));
+    return Array.from(categorias);
+  } catch (error) {
+    console.error("Error al obtener categorías de trabajos:", error);
+    return [];
+  }
 }

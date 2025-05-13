@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="img/fav.png">
+  <!-- Author Meta -->
+  <meta name="author" content="CodePixar">
+  <!-- Meta Description -->
+  <meta name="description" content="">
+  <!-- Meta Keyword -->
+  <meta name="keywords" content="">
+  <!-- meta character set -->
+  <meta charset="UTF-8">
+  <!-- Site Title -->
+  <title>InstaRent</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/linearicons.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Start Header Area -->
+  <div id="header-placeholder"></div> 
+  <!-- End Header Area -->
+
+  <!-- Start Banner Area -->
+  <section class="banner-area organic-breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>InstaRent</h1>
+          <h2 class="text-white">Consigue vivienda en un instante</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Banner Area -->
+
+  <div class="container">
+    <div class="row">
+      <!-- Barra lateral (filtros) - SECCIÓN ACTUALIZADA -->
+      <div class="col-xl-3 col-lg-4 col-md-5">
+        <div class="sidebar-filter mt-50">
+          <div class="top-filter-head">Nuestras Viviendas</div>
+
+          <!-- Filtro de rango de precio -->
+          <div class="common-filter">
+            <div class="head">Precio (€/mes)</div>
+            <form action="#">
+              <div class="price-range-area mt-2">
+                <div class="d-flex justify-content-between mb-1">
+                  <span>Mínimo: <span id="precio-min-value">500</span>€</span>
+                </div>
+                <input type="range" id="precio-min" name="precio-min" min="0" max="2000" value="500" class="w-100 mb-3" oninput="document.getElementById('precio-min-value').textContent = this.value">
+                
+                <div class="d-flex justify-content-between mb-1">
+                  <span>Máximo: <span id="precio-max-value">1000</span>€</span>
+                </div>
+                <input type="range" id="precio-max" name="precio-max" min="0" max="2000" value="1000" class="w-100" oninput="document.getElementById('precio-max-value').textContent = this.value">
+              </div>
+            </form>
+          </div>
+
+          <!-- Filtro Número de habitaciones -->
+          <div class="common-filter mt-4">
+            <div class="head">Número de habitaciones</div>
+            <form action="#">
+              <!-- Utilizamos un select normal en lugar de nice-select -->
+              <select class="form-control mt-2" id="rooms">
+                <option value="">Cualquiera</option>
+                <option value="1">1 habitación</option>
+                <option value="2">2 habitaciones</option>
+                <option value="3">3 habitaciones</option>
+                <option value="4">4 habitaciones</option>
+                <option value="5">5+ habitaciones</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Filtro Número de baños -->
+          <div class="common-filter mt-4">
+            <div class="head">Número de baños</div>
+            <form action="#">
+              <!-- Utilizamos un select normal en lugar de nice-select -->
+              <select class="form-control mt-2" id="bathrooms">
+                <option value="">Cualquiera</option>
+                <option value="1">1 baño</option>
+                <option value="2">2 baños</option>
+                <option value="3">3 baños</option>
+                <option value="4">4 baños</option>
+                <option value="5">5+ baños</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Filtro Valoración del casero -->
+          <div class="common-filter mt-4">
+            <div class="head">Valoración del casero</div>
+            <form action="#">
+              <!-- Utilizamos un select normal en lugar de nice-select -->
+              <select class="form-control mt-2" id="rating">
+                <option value="">Cualquiera</option>
+                <option value="1">1 estrella</option>
+                <option value="2">2 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="5">5 estrellas</option>
+              </select>
+            </form>
+          </div>
+
+          <!-- Botones de Filtrar / Quitar Filtros -->
+          <div class="filter-actions mt-4 mb-4">
+            <button class="primary-btn filter-btn w-100 mb-2 apply-filters">Filtrar</button>
+            <button class="primary-btn filter-btn w-100 clear-filters" style="background: #ccc; color: #333;">Quitar Filtros</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de anuncios de vivienda -->
+      <div class="col-xl-9 col-lg-8 col-md-7">
+        <!-- Start Listado de Viviendas -->
+        <section class="lattest-product-area pb-40 category-list">
+          <div class="row" id="viviendas-container">
+            <!-- Las viviendas se cargarán dinámicamente aquí -->
+          </div>
+        </section>
+        <!-- End Listado de Viviendas -->
+      </div>
+    </div>
+  </div>
+
+  <!-- start footer Area -->
+  <footer class="footer-area section_gap">
+    <div class="container">
+      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Sobre Nosotros</h6>
+            <p>
+                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
+                ¡Bienvenido a la manera más fácil de alquilar!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+          <div class="single-footer-widget">
+            <h6>Síguenos</h6>
+            <p>Seamos sociales</p>
+            <div class="footer-social d-flex align-items-center">
+              <a href="https://www.facebook.com/profile.php?id=61575898442599" target="_blank" rel="noopener">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://x.com/instarent218831" target="_blank" rel="noopener">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/instarent_?igsh=M3Njazc2dXhqZDdh&utm_source=qr" target="_blank" rel="noopener">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </div>                        
+          </div>
+        </div>        
+      </div>
+
+      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
+      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <!-- Tu texto base existente -->
+          <span>© 2025 InstaRent</span> |
+          <a href="condiciones_uso.html">Condiciones de Uso</a> |
+          <a href="politica_privacidad.html">Política de Privacidad</a> |
+          <a href="politica_cookies.html">Política de Cookies</a> |
+          <a href="politica_copyright.html">Política de Copyright</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End footer Area -->
+
+  <!-- Scripts -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous">
+  </script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/nouislider.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- gmaps Js (si no lo usas, puedes comentarlo) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="js/gmaps.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Función para cargar las viviendas desde el backend
+    async function cargarViviendas(filtros = {}) {
+      const contenedor = document.getElementById("viviendas-container");
+      contenedor.innerHTML = '<div class="col-12 text-center"><p>Cargando viviendas...</p></div>';
+
+      try {
+        let url = 'https://instarent-backend.onrender.com/api/viviendas';
+        if (Object.keys(filtros).length > 0) {
+          const params = new URLSearchParams();
+          for (const [key, value] of Object.entries(filtros)) {
+            if (value !== '') {
+              params.append(key, value);
+            }
+          }
+          url += '?' + params.toString();
+        }
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (response.ok) {
+          contenedor.innerHTML = "";
+
+          if (data.viviendas && data.viviendas.length > 0) {
+            data.viviendas.forEach((vivienda) => {
+              const imagen = vivienda.imagen && vivienda.imagen.trim() !== "" 
+                ? vivienda.imagen.replace("../frontend_nuevo/", "") 
+                : "img/default.jpg";
+
+              const viviendaHTML = `
+                <div class="col-12 mb-3">
+                  <a href="single-product.html?id=${vivienda.id}" style="text-decoration: none; color: inherit;">
+                    <div class="single-product d-flex align-items-center p-3 border rounded">
+                      <img src="${imagen}" alt="Imagen de la vivienda" style="width: 150px; height: 120px; object-fit: cover;" class="img-fluid rounded mr-3">
+                      <div class="product-details ms-4">
+                        <h6>${vivienda.descripcion || 'Sin título'}</h6>
+                        <p class="mb-2">
+                          ${vivienda.numHabitaciones || 'N/A'} habitaciones, 
+                          ${vivienda.numBanyos || 'N/A'} baños, 
+                          ${vivienda.metrosCuadrados || 'N/A'} m²
+                        </p>
+                        <div class="price d-flex align-items-center gap-3">
+                          <h6 class="mb-0">${vivienda.precio || 'N/A'}€/mes</h6>
+                          ${vivienda.precioAnterior ? `<h6 class="l-through mb-0 text-muted">${vivienda.precioAnterior}€/mes</h6>` : ''}
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              `;
+              contenedor.innerHTML += viviendaHTML;
+            });
+          } else {
+            contenedor.innerHTML = '<div class="col-12 text-center"><p>No se encontraron viviendas que coincidan con los filtros.</p></div>';
+          }
+        } else {
+          contenedor.innerHTML = '<div class="col-12 text-center"><p>No se encontraron viviendas disponibles.</p></div>';
+        }
+      } catch (error) {
+        console.error("Error al cargar las viviendas:", error);
+        contenedor.innerHTML = '<div class="col-12 text-center"><p>Error al cargar las viviendas. Inténtalo más tarde.</p></div>';
+      }
+    }
+
+    // Manejar los filtros
+    document.addEventListener("DOMContentLoaded", function() {
+      const precioMin = document.getElementById("precio-min");
+      const precioMax = document.getElementById("precio-max");
+
+      document.querySelector('.apply-filters').addEventListener('click', function() {
+        const filtros = {
+          precioMin: precioMin.value,
+          precioMax: precioMax.value,
+          numHabitaciones: document.getElementById('rooms').value,
+          numBanyos: document.getElementById('bathrooms').value,
+          valoracion: document.getElementById('rating').value // Valoración del casero
+        };
+        cargarViviendas(filtros);
+      });
+
+      document.querySelector('.clear-filters').addEventListener('click', function() {
+        precioMin.value = 500;
+        document.getElementById('precio-min-value').textContent = "500";
+        
+        precioMax.value = 1000;
+        document.getElementById('precio-max-value').textContent = "1000";
+        
+        document.getElementById('rooms').value = '';
+        document.getElementById('bathrooms').value = '';
+        document.getElementById('rating').value = '';
+        
+        cargarViviendas();
+      });
+
+      cargarViviendas();
+    });
+  
+  </script>
+  <script src="scripts/header_loader.js"></script>
+</body>
+</html>

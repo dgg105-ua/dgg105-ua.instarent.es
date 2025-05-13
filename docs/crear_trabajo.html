@@ -14,10 +14,6 @@
   <meta name="keywords" content="">
   <!-- Site Title -->
   <title>Crear Anuncio de Trabajo - InstaRent</title>
-  <!--
-    CSS
-    (Reutilizamos los mismos enlaces que en index.html para mantener el estilo unificado)
-  -->
   <link rel="stylesheet" href="css/linearicons.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/themify-icons.css">
@@ -30,8 +26,6 @@
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- CSS opcional propio -->
-  <!-- <link rel="stylesheet" href="css/crear_anuncio_trabajo.css"> -->
 </head>
 
 <body>
@@ -167,7 +161,6 @@
   </footer>
   <!-- End footer Area -->
 
-  <!-- Scripts (igual que en index.html) -->
   <script src="js/vendor/jquery-2.2.4.min.js"></script>
   <script 
     src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
@@ -213,7 +206,7 @@
 
         if (response.ok) {
           alert("Trabajo publicado con éxito.");
-          window.location.href = "index.html";
+          window.location.href = "inicio.html";
         } else {
           alert(data.error || "Error al publicar el trabajo.");
         }

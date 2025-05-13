@@ -1,184 +1,315 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js">
+<html lang="es">
 <head>
-  <!-- Mobile Specific Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Favicon-->
-  <link rel="shortcut icon" href="img/fav.png">
-  <!-- Author Meta -->
-  <meta name="author" content="CodePixar">
-  <!-- Meta Description -->
-  <meta name="description" content="">
-  <!-- Meta Keyword -->
-  <meta name="keywords" content="">
-  <!-- meta character set -->
   <meta charset="UTF-8">
-  <!-- Site Title -->
-  <title>InstaRent</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/linearicons.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/themify-icons.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/owl.carousel.css">
-  <link rel="stylesheet" href="css/nice-select.css">
-  <link rel="stylesheet" href="css/nouislider.min.css">
-  <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-  <link rel="stylesheet" href="css/magnific-popup.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="InstaRent">
+  <meta name="description" content="InstaRent - Encuentra tu vivienda ideal al instante">
+
+  <link rel="icon" href="img/fav.png" type="image/png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+  <!-- Tu CSS personalizado -->
   <link rel="stylesheet" href="css/main.css">
+
+  <title>InstaRent</title>
+
+  <style>
+    :root {
+      --primary: #fd7600;
+      --secondary: #fadd36;
+      --text-dark: #333;
+      --bg-light: #f9f9f9;
+      --font-base: 'Poppins', sans-serif;
+    }
+    body {
+      font-family: var(--font-base);
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+    }
+    .navbar {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+    }
+    .banner-area {
+      background: url('img/banner/banner-bg.jpg') center/cover no-repeat;
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    }
+    .banner-area::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.4);
+    }
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+    .btn-primary {
+      background: var(--primary);
+      border: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--secondary);
+      border: var(--secondary);
+    }
+    .feature-card:hover img {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .testimonial-card {
+      background: #fff;
+      border: none;
+      transition: transform 0.3s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    /* Glow para logo intermedio */
+    .logo-glow {
+      display: inline-block;
+      filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    .img-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+    }
+    .img-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 4px;
+    }
+
+    /* --- ESTILOS COPIADOS DEL SEGUNDO FOOTER --- */
+    .footer-area {
+      background: #222;
+      color: #ccc;
+    }
+    .section_gap {
+      padding: 60px 0;
+    }
+    .single-footer-widget h6 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .footer-social a {
+      color: #ccc;
+      margin-right: 15px;
+    }
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .footer-bottom a {
+      color: var(--secondary);
+      margin: 0 5px;
+      text-decoration: none;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    /* ------------------------------------------ */
+  </style>
 </head>
-
 <body>
-  <!-- Start Header Area -->
-  <div id="header-placeholder"></div> 
-  <!-- End Header Area -->
 
-  <!-- Start Banner Area -->
-  <section class="banner-area organic-breadcrumb">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-        <div class="col-first">
-          <h1>InstaRent</h1>
-          <h2 class="text-white">Consigue vivienda en un instante</h2>
+      <a class="navbar-brand" href="#"><img src="img/logo.png" alt="InstaRent Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Capturas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonios</a></li>
+          <li class="nav-item"><a class="btn btn-primary rounded-pill ms-3" href="registrarse.html">Regístrate</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="banner-area">
+    <div class="container text-center banner-content">
+      <!-- Logo intermedio -->
+      <img src="img/logo.png" alt="InstaRent Logo" data-aos="fade-up" class="img-fluid" style="max-height: 250px;">
+      <h1 class="display-4 fw-bold text-white" data-aos="fade-up">Consigue vivienda en un instante</h1>
+      <p class="lead" data-aos="fade-up" data-aos-delay="200">InstaRent te conecta con tu próximo hogar de forma rápida y segura.</p>
+      <a href="registrarse.html" class="btn btn-primary btn-lg rounded-pill mt-4" data-aos="fade-up" data-aos-delay="400">¡Empieza ahora!</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <img src="img/about_inst.png" alt="Sobre InstaRent" class="img-fluid rounded shadow-sm img-clickable">
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <h2 class="fw-bold mb-3">¿Qué es InstaRent?</h2>
+          <p>Una plataforma innovadora que conecta buscadores de vivienda con caseros, usando filtros avanzados, mapas interactivos y valoraciones reales.</p>
+          <ul class="list-unstyled mt-4">
+            <li class="mb-2"><i class="fas fa-search me-2 text-primary"></i>Búsqueda por precio, ubicación y características</li>
+            <li class="mb-2"><i class="fas fa-chart-line me-2 text-primary"></i>Valoraciones y opiniones de otros inquilinos</li>
+            <li class="mb-2"><i class="fas fa-camera me-2 text-primary"></i>Galería de fotos y tours virtuales</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Banner Area -->
 
-  <div class="container">
-    <div class="row">
-      <!-- Barra lateral (filtros) - SECCIÓN ACTUALIZADA -->
-      <div class="col-xl-3 col-lg-4 col-md-5">
-        <div class="sidebar-filter mt-50">
-          <div class="top-filter-head">Nuestras Viviendas</div>
-
-          <!-- Filtro de rango de precio -->
-          <div class="common-filter">
-            <div class="head">Precio (€/mes)</div>
-            <form action="#">
-              <div class="price-range-area mt-2">
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Mínimo: <span id="precio-min-value">500</span>€</span>
-                </div>
-                <input type="range" id="precio-min" name="precio-min" min="0" max="2000" value="500" class="w-100 mb-3" oninput="document.getElementById('precio-min-value').textContent = this.value">
-                
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Máximo: <span id="precio-max-value">1000</span>€</span>
-                </div>
-                <input type="range" id="precio-max" name="precio-max" min="0" max="2000" value="1000" class="w-100" oninput="document.getElementById('precio-max-value').textContent = this.value">
-              </div>
-            </form>
-          </div>
-
-          <!-- Filtro Número de habitaciones -->
-          <div class="common-filter mt-4">
-            <div class="head">Número de habitaciones</div>
-            <form action="#">
-              <!-- Utilizamos un select normal en lugar de nice-select -->
-              <select class="form-control mt-2" id="rooms">
-                <option value="">Cualquiera</option>
-                <option value="1">1 habitación</option>
-                <option value="2">2 habitaciones</option>
-                <option value="3">3 habitaciones</option>
-                <option value="4">4 habitaciones</option>
-                <option value="5">5+ habitaciones</option>
-              </select>
-            </form>
-          </div>
-
-          <!-- Filtro Número de baños -->
-          <div class="common-filter mt-4">
-            <div class="head">Número de baños</div>
-            <form action="#">
-              <!-- Utilizamos un select normal en lugar de nice-select -->
-              <select class="form-control mt-2" id="bathrooms">
-                <option value="">Cualquiera</option>
-                <option value="1">1 baño</option>
-                <option value="2">2 baños</option>
-                <option value="3">3 baños</option>
-                <option value="4">4 baños</option>
-                <option value="5">5+ baños</option>
-              </select>
-            </form>
-          </div>
-
-          <!-- Filtro Valoración del casero -->
-          <div class="common-filter mt-4">
-            <div class="head">Valoración del casero</div>
-            <form action="#">
-              <!-- Utilizamos un select normal en lugar de nice-select -->
-              <select class="form-control mt-2" id="rating">
-                <option value="">Cualquiera</option>
-                <option value="1">1 estrella</option>
-                <option value="2">2 estrellas</option>
-                <option value="3">3 estrellas</option>
-                <option value="4">4 estrellas</option>
-                <option value="5">5 estrellas</option>
-              </select>
-            </form>
-          </div>
-
-          <!-- Botones de Filtrar / Quitar Filtros -->
-          <div class="filter-actions mt-4 mb-4">
-            <button class="primary-btn filter-btn w-100 mb-2 apply-filters">Filtrar</button>
-            <button class="primary-btn filter-btn w-100 clear-filters" style="background: #ccc; color: #333;">Quitar Filtros</button>
+  <!-- Features -->
+  <section id="features" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold">Capturas de la plataforma</h2>
+        <p>Descubre la experiencia InstaRent desde dentro</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="feature-card overflow-hidden rounded">
+            <img src="img/web_img1.png" alt="Captura 1" class="img-fluid img-clickable">
           </div>
         </div>
-      </div>
-
-      <!-- Sección de anuncios de vivienda -->
-      <div class="col-xl-9 col-lg-8 col-md-7">
-        <!-- Start Listado de Viviendas -->
-        <section class="lattest-product-area pb-40 category-list">
-          <div class="row" id="viviendas-container">
-            <!-- Las viviendas se cargarán dinámicamente aquí -->
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="feature-card overflow-hidden rounded">
+            <img src="img/web_img2.png" alt="Captura 2" class="img-fluid img-clickable">
           </div>
-        </section>
-        <!-- End Listado de Viviendas -->
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="feature-card overflow-hidden rounded">
+            <img src="img/web_img3.png" alt="Captura 3" class="img-fluid img-clickable">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- start footer Area -->
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Lo que dicen nuestros usuarios</h2>
+      </div>
+      <div class="owl-carousel owl-theme">
+        <!-- Juan Carlos -->
+        <div class="testimonial-card p-4 text-center">
+          <img src="img/l4.jpg" alt="Juan Carlos" class="rounded-circle mb-3" width="80" height="80">
+          <h5 class="fw-bold">Juan Carlos</h5>
+          <small class="text-muted">04/12/2024</small>
+          <div class="mb-2 text-warning">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="mt-3">"Gracias a InstaRent encontré mi piso en 10 minutos. ¡Increíble!"</p>
+        </div>
+        <!-- Fabian Martínez -->
+        <div class="testimonial-card p-4 text-center">
+          <img src="img/i7.jpg" alt="Fabian Martínez" class="rounded-circle mb-3" width="80" height="80">
+          <h5 class="fw-bold">Fabian Martínez</h5>
+          <small class="text-muted">15/01/2023</small>
+          <div class="mb-2 text-warning">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="mt-3">"Interfaz muy intuitiva y caseros atentos. Recomendado 100%."</p>
+        </div>
+        <!-- Saul Poveda -->
+        <div class="testimonial-card p-4 text-center">
+          <img src="img/i4.jpg" alt="Saul Poveda" class="rounded-circle mb-3" width="80" height="80">
+          <h5 class="fw-bold">Saul Poveda</h5>
+          <small class="text-muted">24/07/2024</small>
+          <div class="mb-2 text-warning">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="mt-3">"Un gran equipo de profesionales."</p>
+        </div>
+        <!-- Maria Jose -->
+        <div class="testimonial-card p-4 text-center">
+          <img src="img/r3.jpg" alt="Maria Jose" class="rounded-circle mb-3" width="80" height="80">
+          <h5 class="fw-bold">Maria Jose</h5>
+          <small class="text-muted">16/10/2022</small>
+          <div class="mb-2 text-warning">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="mt-3">"Los filtros me ayudaron a encontrar justo lo que buscaba."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-5 text-center text-white" style="background: linear-gradient(90deg, var(--primary), var(--secondary));">
+    <div class="container" data-aos="zoom-in">
+      <h2 class="fw-bold mb-3" style="font-size:2.5rem;">¿Listo para encontrar tu próximo hogar?</h2>
+      <p class="mb-4">Únete a InstaRent hoy y accede a miles de opciones en un solo lugar.</p>
+      <a href="registrarse.html" class="btn btn-light btn-lg rounded-pill">¡Regístrate gratis!</a>
+    </div>
+  </section>
+
+  <!-- Footer adaptado -->
   <footer class="footer-area section_gap">
     <div class="container">
-      <!-- Aquí mantenemos el footer existente, pero añadimos los enlaces solicitados -->
       <div class="row">
-        <div class="col-lg-3  col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h6>Sobre Nosotros</h6>
-            <p>
-                En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro.
-                ¡Bienvenido a la manera más fácil de alquilar!
-            </p>
+            <p>En InstaRent, queremos que encontrar tu próxima vivienda sea rápido, sencillo y seguro. ¡Bienvenido a la manera más fácil de alquilar!</p>
           </div>
         </div>
-        <div class="col-lg-2 col-md-6 col-sm-6 ml-auto">
+        <div class="col-lg-2 col-md-6 col-sm-6 ms-auto">
           <div class="single-footer-widget">
             <h6>Síguenos</h6>
             <p>Seamos sociales</p>
             <div class="footer-social d-flex align-items-center">
               <a href="https://www.facebook.com/profile.php?id=61575898442599" target="_blank" rel="noopener">
-                <i class="fa fa-facebook"></i>
+                <i class="fab fa-facebook"></i>
               </a>
               <a href="https://x.com/instarent218831" target="_blank" rel="noopener">
-                <i class="fa fa-twitter"></i>
+                <i class="fab fa-twitter"></i>
               </a>
               <a href="https://www.instagram.com/instarent_?igsh=M3Njazc2dXhqZDdh&utm_source=qr" target="_blank" rel="noopener">
-                <i class="fa fa-instagram"></i>
+                <i class="fab fa-instagram"></i>
               </a>
-            </div>                        
+            </div>
           </div>
-        </div>        
+        </div>
       </div>
-
-      <!-- Cambio 3: Añadir Condiciones de uso, Política de privacidad, etc. -->
       <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
         <p class="footer-text m-0">
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          <!-- Tu texto base existente -->
           <span>© 2025 InstaRent</span> |
           <a href="condiciones_uso.html">Condiciones de Uso</a> |
           <a href="politica_privacidad.html">Política de Privacidad</a> |
@@ -188,127 +319,35 @@
       </div>
     </div>
   </footer>
-  <!-- End footer Area -->
 
   <!-- Scripts -->
-  <script src="js/vendor/jquery-2.2.4.min.js"></script>
-  <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous">
-  </script>
-  <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/jquery.ajaxchimp.min.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/nouislider.min.js"></script>
-  <script src="js/countdown.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- gmaps Js (si no lo usas, puedes comentarlo) -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-  <script src="js/gmaps.min.js"></script>
-  <script src="js/main.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
   <script>
-    // Función para cargar las viviendas desde el backend
-    async function cargarViviendas(filtros = {}) {
-      const contenedor = document.getElementById("viviendas-container");
-      contenedor.innerHTML = '<div class="col-12 text-center"><p>Cargando viviendas...</p></div>';
-
-      try {
-        let url = 'https://instarent-backend.onrender.com/api/viviendas';
-        if (Object.keys(filtros).length > 0) {
-          const params = new URLSearchParams();
-          for (const [key, value] of Object.entries(filtros)) {
-            if (value !== '') {
-              params.append(key, value);
-            }
-          }
-          url += '?' + params.toString();
-        }
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (response.ok) {
-          contenedor.innerHTML = "";
-
-          if (data.viviendas && data.viviendas.length > 0) {
-            data.viviendas.forEach((vivienda) => {
-              const imagen = vivienda.imagen && vivienda.imagen.trim() !== "" 
-                ? vivienda.imagen.replace("../frontend_nuevo/", "") 
-                : "img/default.jpg";
-
-              const viviendaHTML = `
-                <div class="col-12 mb-3">
-                  <a href="single-product.html?id=${vivienda.id}" style="text-decoration: none; color: inherit;">
-                    <div class="single-product d-flex align-items-center p-3 border rounded">
-                      <img src="${imagen}" alt="Imagen de la vivienda" style="width: 150px; height: 120px; object-fit: cover;" class="img-fluid rounded mr-3">
-                      <div class="product-details ms-4">
-                        <h6>${vivienda.descripcion || 'Sin título'}</h6>
-                        <p class="mb-2">
-                          ${vivienda.numHabitaciones || 'N/A'} habitaciones, 
-                          ${vivienda.numBanyos || 'N/A'} baños, 
-                          ${vivienda.metrosCuadrados || 'N/A'} m²
-                        </p>
-                        <div class="price d-flex align-items-center gap-3">
-                          <h6 class="mb-0">${vivienda.precio || 'N/A'}€/mes</h6>
-                          ${vivienda.precioAnterior ? `<h6 class="l-through mb-0 text-muted">${vivienda.precioAnterior}€/mes</h6>` : ''}
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              `;
-              contenedor.innerHTML += viviendaHTML;
-            });
-          } else {
-            contenedor.innerHTML = '<div class="col-12 text-center"><p>No se encontraron viviendas que coincidan con los filtros.</p></div>';
-          }
-        } else {
-          contenedor.innerHTML = '<div class="col-12 text-center"><p>No se encontraron viviendas disponibles.</p></div>';
-        }
-      } catch (error) {
-        console.error("Error al cargar las viviendas:", error);
-        contenedor.innerHTML = '<div class="col-12 text-center"><p>Error al cargar las viviendas. Inténtalo más tarde.</p></div>';
-      }
-    }
-
-    // Manejar los filtros
-    document.addEventListener("DOMContentLoaded", function() {
-      const precioMin = document.getElementById("precio-min");
-      const precioMax = document.getElementById("precio-max");
-
-      document.querySelector('.apply-filters').addEventListener('click', function() {
-        const filtros = {
-          precioMin: precioMin.value,
-          precioMax: precioMax.value,
-          numHabitaciones: document.getElementById('rooms').value,
-          numBanyos: document.getElementById('bathrooms').value,
-          valoracion: document.getElementById('rating').value // Valoración del casero
-        };
-        cargarViviendas(filtros);
+    AOS.init({ duration: 800, once: true });
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        singleItem: true,
+        autoPlay: 4000,
+        stopOnHover: true,
+        navigation: false,
+        pagination: true
       });
-
-      document.querySelector('.clear-filters').addEventListener('click', function() {
-        precioMin.value = 500;
-        document.getElementById('precio-min-value').textContent = "500";
-        
-        precioMax.value = 1000;
-        document.getElementById('precio-max-value').textContent = "1000";
-        
-        document.getElementById('rooms').value = '';
-        document.getElementById('bathrooms').value = '';
-        document.getElementById('rating').value = '';
-        
-        cargarViviendas();
+      document.querySelectorAll('.img-clickable').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          const overlay = document.createElement('div');
+          overlay.className = 'img-overlay';
+          const big = document.createElement('img');
+          big.src = img.src;
+          overlay.appendChild(big);
+          overlay.addEventListener('click', () => document.body.removeChild(overlay));
+          document.body.appendChild(overlay);
+        });
       });
-
-      cargarViviendas();
     });
-  
   </script>
-  <script src="scripts/header_loader.js"></script>
 </body>
 </html>
